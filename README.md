@@ -4,7 +4,7 @@
 
 AstroView is an interactive web platform that transforms complex, scattered space data into meaningful, accessible, and actionable insights for everyday users. Built for students, educators, space enthusiasts, and the curious public.
 
-> 🚀 **Built for [Hackathon Name] 2026** - 24 hours, infinite curiosity
+> 🚀 **Built for Invictus Hackathon ISTE 2026** - 24 hours, infinite curiosity
 
 ---
 
