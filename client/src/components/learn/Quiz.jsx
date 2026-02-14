@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { CheckCircle, XCircle, ChevronRight, RotateCcw, Trophy, Sparkles } from 'lucide-react';
-import Button from '../common/Button';
+import { Button } from '../common/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Quiz({ quiz, onComplete, onClose }) {

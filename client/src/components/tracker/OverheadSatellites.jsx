@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Radar, RefreshCw, Satellite } from 'lucide-react';
 import { getOverheadSatellites } from '@/services/satelliteService';
-import Button from '@/components/common/Button';
-import EmptyState from '@/components/common/EmptyState';
+import { Button } from '@/components/common/Button';
+import { EmptyState } from '@/components/common/EmptyState';
 
 const SATELLITE_CATEGORIES = {
   1: { name: 'ISS', color: 'text-cyan-400', bg: 'bg-cyan-400/10' },

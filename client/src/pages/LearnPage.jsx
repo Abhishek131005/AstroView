@@ -8,8 +8,8 @@ import Quiz from '../components/learn/Quiz';
 import LearningPathCard from '../components/learn/LearningPathCard';
 import LearningPathDetail from '../components/learn/LearningPathDetail';
 import BadgeDisplay from '../components/learn/BadgeDisplay';
-import SearchBar from '../components/common/SearchBar';
-import Modal from '../components/common/Modal';
+import { SearchBar } from '../components/common/SearchBar';
+import { Modal } from '../components/common/Modal';
 import { simplifyText } from '../services/aiService';
 
 // Import data

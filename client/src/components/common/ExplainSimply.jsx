@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Sparkles, Loader2, RotateCcw } from 'lucide-react';
-import Button from './Button';
+import { Button } from './Button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ExplainSimply({ text, context, fallbackText }) {

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, Calendar, Ruler, TrendingDown, RefreshCw, Shield, AlertCircle } from 'lucide-react';
 import { getNearEarthObjects } from '@/services/nasaService';
-import Skeleton from '@/components/common/Skeleton';
-import Badge from '@/components/common/Badge';
+import { Skeleton } from '@/components/common/Skeleton';
+import { Badge } from '@/components/common/Badge';
 import { formatDate, formatDistance } from '@/utils/formatters';
 
 function NEOSection() {

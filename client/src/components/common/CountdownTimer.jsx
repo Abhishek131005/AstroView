@@ -91,4 +91,4 @@ function CountdownTimer({
   );
 }
 
-export default CountdownTimer;
+export { CountdownTimer };

@@ -348,6 +348,48 @@ Tested on:
 
 ---
 
+## 🚢 Deployment
+
+AstroView is production-ready and can be deployed to Vercel (frontend) and Railway or Vercel Serverless (backend).
+
+**Quick Deploy:**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/astroview)
+
+**Full Deployment Guide:** See [DEPLOYMENT.md](./docs/DEPLOYMENT.md) for detailed instructions.
+
+### Production Environment Variables
+
+**Frontend (`client/.env.production`):**
+```env
+VITE_API_BASE_URL=https://your-backend-url.railway.app
+```
+
+**Backend (`server/.env.production`):**
+```env
+NODE_ENV=production
+PORT=3001
+ALLOWED_ORIGINS=https://your-frontend.vercel.app
+
+# API Keys (get from respective services)
+NASA_API_KEY=your_key
+N2YO_API_KEY=your_key
+ASTRONOMY_APP_ID=your_id
+ASTRONOMY_APP_SECRET=your_secret
+OPENWEATHER_API_KEY=your_key
+GEMINI_API_KEY=your_key
+```
+
+**Deployment Checklist:**
+- ✅ All API keys configured in production
+- ✅ CORS origins updated to production URLs  
+- ✅ Build runs successfully (`npm run build`)
+- ✅ Environment variables set in Vercel/Railway
+- ✅ Health check endpoint accessible
+- ✅ Lighthouse scores > 90
+
+---
+
 ## 🤝 Contributing (Post-Hackathon)
 
 We welcome contributions! Here's how:

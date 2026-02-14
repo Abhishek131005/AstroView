@@ -102,4 +102,4 @@ function Modal({
   return createPortal(modalContent, document.body);
 }
 
-export default Modal;
+export { Modal };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
-import Badge from '../common/Badge';
-import Button from '../common/Button';
+import { Badge } from '../common/Badge';
+import { Button } from '../common/Button';
 
 export default function GlossaryItem({ item, onExplainSimply }) {
   const [isExpanded, setIsExpanded] = useState(false);

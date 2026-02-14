@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Satellite, Users, Target, Calendar, RefreshCw } from 'lucide-react';
 import { getSatellitePasses } from '@/services/satelliteService';
-import CountdownTimer from '@/components/common/CountdownTimer';
-import Skeleton from '@/components/common/Skeleton';
+import { CountdownTimer } from '@/components/common/CountdownTimer';
+import { Skeleton } from '@/components/common/Skeleton';
 import { formatDate } from '@/utils/formatters';
 
 function PassPrediction({ latitude, longitude }) {

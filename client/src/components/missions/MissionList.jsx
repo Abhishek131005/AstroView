@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Search, Filter, SortAsc } from 'lucide-react';
 import MissionCard from './MissionCard';
 import MissionDetail from './MissionDetail';
-import SearchBar from '@/components/common/SearchBar';
-import EmptyState from '@/components/common/EmptyState';
+import { SearchBar } from '@/components/common/SearchBar';
+import { EmptyState } from '@/components/common/EmptyState';
 import missionsData from '@/data/missions.json';
 
 function MissionList() {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Satellite, Sparkles, CheckCircle } from 'lucide-react';
-import Badge from '@/components/common/Badge';
+import { Badge } from '@/components/common/Badge';
 
 function ImpactCard({ story, categoryColor }) {
   const [showSimple, setShowSimple] = useState(false);

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle, Circle, ExternalLink, BookOpen, Award } from 'lucide-react';
-import Button from '../common/Button';
-import Modal from '../common/Modal';
+import { Button } from '../common/Button';
+import { Modal } from '../common/Modal';
 import Quiz from './Quiz';
 import { motion } from 'framer-motion';
 import quizzesData from '../../data/quizzes.json';
