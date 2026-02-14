@@ -1,0 +1,245 @@
+# AstroView - Git Ignore File
+
+# ============================================
+# Environment Variables (NEVER COMMIT)
+# ============================================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+
+# ============================================
+# Dependencies
+# ============================================
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package lock files (keep one, ignore others based on preference)
+# Uncomment the ones you DON'T use:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ============================================
+# Build Outputs
+# ============================================
+
+# Vite (Frontend)
+dist/
+dist-ssr/
+*.local
+
+# Next.js (if migrating to Next.js later)
+.next/
+out/
+
+# Build directories
+build/
+.build/
+public/build/
+
+# ============================================
+# IDE and Editor Files
+# ============================================
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.vscode/*
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, IntelliJ IDEA, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# Operating System Files
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# Testing
+# ============================================
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Test output
+test-results/
+*.log
+
+# ============================================
+# Logs
+# ============================================
+
+# General logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Runtime logs
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# Cache and Temporary Files
+# ============================================
+
+# Cache directories
+.cache/
+.cache-loader/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ============================================
+# Deployment
+# ============================================
+
+# Vercel
+.vercel
+
+# Netlify
+.netlify
+
+# ============================================
+# Miscellaneous
+# ============================================
+
+# TypeScript (if migrating to TS later)
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variable files (already listed above, but extra safety)
+.env*
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ============================================
+# Project-Specific
+# ============================================
+
+# Static assets that are too large (use Git LFS or CDN)
+# public/assets/videos/
+# public/assets/large-images/
+
+# Local development certificates
+*.pem
+*.key
+*.cert
+
+# Local database files (if adding SQLite later)
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# KEEP THESE FILES
+# ============================================
+
+# !.gitignore (this file)
+# !.env.example (template for environment variables)
+# !README.md
+# !LICENSE
