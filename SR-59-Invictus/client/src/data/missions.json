@@ -1,0 +1,295 @@
+[
+  {
+    "id": "artemis-1",
+    "name": "Artemis I",
+    "agency": "NASA",
+    "status": "completed",
+    "launchDate": "2022-11-16T06:47:00Z",
+    "description": "Uncrewed test flight of the Orion spacecraft and Space Launch System rocket, paving the way for crewed lunar missions.",
+    "spacecraft": "Orion",
+    "missionType": "lunar-exploration",
+    "timeline": [
+      { "date": "2022-11-16", "event": "Launch from Kennedy Space Center", "completed": true },
+      { "date": "2022-11-21", "event": "Entered distant retrograde orbit around Moon", "completed": true },
+      { "date": "2022-12-05", "event": "Departed lunar orbit", "completed": true },
+      { "date": "2022-12-11", "event": "Splashdown in Pacific Ocean", "completed": true }
+    ],
+    "impact": "Artemis I successfully tested all systems needed to send astronauts to the Moon in future missions. This mission verified that the spacecraft can safely carry humans through deep space and return home.",
+    "images": [
+      "https://images.nasa.gov/details/KSC-20221116-PH-JBS01_0261",
+      "https://images.nasa.gov/details/NHQ202211160005"
+    ],
+    "crew": null
+  },
+  {
+    "id": "mars-2020",
+    "name": "Mars 2020 (Perseverance)",
+    "agency": "NASA",
+    "status": "active",
+    "launchDate": "2020-07-30T11:50:00Z",
+    "description": "Rover mission to search for signs of ancient microbial life and collect rock samples for future return to Earth.",
+    "spacecraft": "Perseverance Rover & Ingenuity Helicopter",
+    "missionType": "mars-exploration",
+    "timeline": [
+      { "date": "2020-07-30", "event": "Launch from Cape Canaveral", "completed": true },
+      { "date": "2021-02-18", "event": "Landing in Jezero Crater", "completed": true },
+      { "date": "2021-04-19", "event": "Ingenuity first flight (first powered flight on another planet)", "completed": true },
+      { "date": "2023-present", "event": "Collecting samples and exploring crater", "completed": false }
+    ],
+    "impact": "Perseverance is searching for signs of ancient life on Mars and collecting samples that will be returned to Earth. The mission also includes Ingenuity, which proved that powered flight is possible on Mars, opening new possibilities for future exploration.",
+    "images": [
+      "https://images.nasa.gov/details/PIA24542",
+      "https://images.nasa.gov/details/PIA24543"
+    ],
+    "crew": null
+  },
+  {
+    "id": "jwst",
+    "name": "James Webb Space Telescope",
+    "agency": "NASA/ESA/CSA",
+    "status": "active",
+    "launchDate": "2021-12-25T12:20:00Z",
+    "description": "The most powerful space telescope ever built, designed to see the first galaxies formed after the Big Bang and study exoplanet atmospheres.",
+    "spacecraft": "James Webb Space Telescope",
+    "missionType": "space-observatory",
+    "timeline": [
+      { "date": "2021-12-25", "event": "Launch on Ariane 5 rocket", "completed": true },
+      { "date": "2022-01-24", "event": "Arrival at L2 Lagrange point", "completed": true },
+      { "date": "2022-07-12", "event": "First images released to public", "completed": true },
+      { "date": "2022-present", "event": "Ongoing scientific observations", "completed": false }
+    ],
+    "impact": "JWST is revolutionizing our understanding of the universe by capturing infrared light from the earliest galaxies, studying star and planet formation, and analyzing the atmospheres of exoplanets to search for signs of habitability.",
+    "images": [
+      "https://images.nasa.gov/details/GSFC_20171208_Archive_e001327",
+      "https://images.nasa.gov/details/GSFC_20171208_Archive_e001704"
+    ],
+    "crew": null
+  },
+  {
+    "id": "iss-expedition-70",
+    "name": "ISS Expedition 70",
+    "agency": "NASA/Roscosmos/ESA/JAXA",
+    "status": "active",
+    "launchDate": "2023-09-27T15:44:00Z",
+    "description": "Current expedition aboard the International Space Station conducting scientific research in microgravity.",
+    "spacecraft": "International Space Station",
+    "missionType": "space-station",
+    "timeline": [
+      { "date": "2023-09-27", "event": "Crew arrives and begins expedition", "completed": true },
+      { "date": "2023-10-15", "event": "Scientific experiments begin", "completed": true },
+      { "date": "2024-03-25", "event": "Expedition scheduled to end", "completed": false }
+    ],
+    "impact": "ISS expeditions conduct hundreds of experiments that benefit life on Earth, including developing new medicines, improving crop yields, creating advanced materials, and testing technologies for long-duration spaceflight.",
+    "images": [],
+    "crew": [
+      "Andreas Mogensen",
+      "Jasmin Moghbeli",
+      "Satoshi Furukawa",
+      "Konstantin Borisov",
+      "Oleg Kononenko",
+      "Nikolai Chub",
+      "Loral O'Hara"
+    ]
+  },
+  {
+    "id": "psyche",
+    "name": "Psyche",
+    "agency": "NASA",
+    "status": "active",
+    "launchDate": "2023-10-13T14:19:00Z",
+    "description": "Mission to explore a unique metal-rich asteroid that may be the exposed core of an early planet.",
+    "spacecraft": "Psyche Orbiter",
+    "missionType": "asteroid-exploration",
+    "timeline": [
+      { "date": "2023-10-13", "event": "Launch from Kennedy Space Center", "completed": true },
+      { "date": "2026-08-01", "event": "Arrival at asteroid Psyche", "completed": false },
+      { "date": "2027-2029", "event": "Orbital study of asteroid", "completed": false }
+    ],
+    "impact": "The Psyche asteroid is thought to be the exposed metallic core of a protoplanet. Studying it helps us understand how Earth and other rocky planets formed and differentiated into layers.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "europa-clipper",
+    "name": "Europa Clipper",
+    "agency": "NASA",
+    "status": "planned",
+    "launchDate": "2024-10-10T12:00:00Z",
+    "description": "Mission to Jupiter's moon Europa to investigate its potential habitability and subsurface ocean.",
+    "spacecraft": "Europa Clipper",
+    "missionType": "outer-planets",
+    "timeline": [
+      { "date": "2024-10-10", "event": "Planned launch", "completed": false },
+      { "date": "2030-04-01", "event": "Arrival at Jupiter system", "completed": false },
+      { "date": "2030-2034", "event": "Multiple flybys of Europa", "completed": false }
+    ],
+    "impact": "Europa has a global ocean beneath its icy crust that may contain twice as much water as all of Earth's oceans combined. This mission will determine if Europa has conditions suitable for life.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "lucy",
+    "name": "Lucy",
+    "agency": "NASA",
+    "status": "active",
+    "launchDate": "2021-10-16T09:34:00Z",
+    "description": "First mission to explore the Trojan asteroids that share Jupiter's orbit around the Sun.",
+    "spacecraft": "Lucy",
+    "missionType": "asteroid-exploration",
+    "timeline": [
+      { "date": "2021-10-16", "event": "Launch from Cape Canaveral", "completed": true },
+      { "date": "2025-04-20", "event": "Flyby of Trojan asteroid Eurybates", "completed": false },
+      { "date": "2027-2033", "event": "Flybys of additional Trojan asteroids", "completed": false }
+    ],
+    "impact": "Trojan asteroids are fossils from the early solar system. Lucy will help us understand how the giant planets formed and the solar system evolved to its current state.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "chandrayaan-3",
+    "name": "Chandrayaan-3",
+    "agency": "ISRO",
+    "status": "completed",
+    "launchDate": "2023-07-14T09:05:00Z",
+    "description": "India's successful lunar landing mission, making ISRO the fourth space agency to achieve a soft landing on the Moon.",
+    "spacecraft": "Vikram Lander & Pragyan Rover",
+    "missionType": "lunar-exploration",
+    "timeline": [
+      { "date": "2023-07-14", "event": "Launch", "completed": true },
+      { "date": "2023-08-23", "event": "Successful landing near lunar south pole", "completed": true },
+      { "date": "2023-08-24", "event": "Rover deployment and surface operations", "completed": true },
+      { "date": "2023-09-02", "event": "Mission completed (one lunar day)", "completed": true }
+    ],
+    "impact": "Chandrayaan-3 demonstrated precision landing technology and explored the Moon's south pole region, which may contain water ice. It showcased India's growing capabilities in space exploration.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "dragonfly",
+    "name": "Dragonfly",
+    "agency": "NASA",
+    "status": "planned",
+    "launchDate": "2028-07-01T00:00:00Z",
+    "description": "Rotorcraft lander mission to explore Saturn's moon Titan, the only moon with a dense atmosphere.",
+    "spacecraft": "Dragonfly Rotorcraft",
+    "missionType": "outer-planets",
+    "timeline": [
+      { "date": "2028-07-01", "event": "Planned launch", "completed": false },
+      { "date": "2034-01-01", "event": "Arrival at Titan", "completed": false },
+      { "date": "2034-2036", "event": "Surface exploration via flight", "completed": false }
+    ],
+    "impact": "Titan has organic-rich chemistry similar to early Earth. Dragonfly will fly to different locations to study the moon's habitability and chemistry, searching for signs of past or present life.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "gateway",
+    "name": "Lunar Gateway",
+    "agency": "NASA/ESA/CSA/JAXA",
+    "status": "planned",
+    "launchDate": "2025-11-01T00:00:00Z",
+    "description": "Small space station in lunar orbit that will serve as a staging point for Artemis lunar missions and future Mars expeditions.",
+    "spacecraft": "Gateway Station Modules",
+    "missionType": "space-station",
+    "timeline": [
+      { "date": "2025-11-01", "event": "Launch of first module (PPE/HALO)", "completed": false },
+      { "date": "2026-2028", "event": "Additional module launches", "completed": false },
+      { "date": "2028+", "event": "Support Artemis crewed missions", "completed": false }
+    ],
+    "impact": "Gateway will enable sustainable lunar exploration and serve as a testbed for technologies needed for Mars missions. It will also allow longer lunar surface stays and access to more locations on the Moon.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "tianzhou-cargo",
+    "name": "Tianzhou Cargo Missions",
+    "agency": "CNSA",
+    "status": "active",
+    "launchDate": "2023-05-10T13:22:00Z",
+    "description": "Cargo spacecraft delivering supplies to China's Tiangong space station.",
+    "spacecraft": "Tianzhou",
+    "missionType": "cargo-resupply",
+    "timeline": [
+      { "date": "2023-05-10", "event": "Tianzhou-6 launch", "completed": true },
+      { "date": "2024-01-17", "event": "Tianzhou-7 launch", "completed": true },
+      { "date": "2024+", "event": "Ongoing cargo missions", "completed": false }
+    ],
+    "impact": "Tianzhou missions support China's permanent space station operations, delivering experiments, food, water, and equipment. This demonstrates China's growing capabilities in human spaceflight.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "osiris-rex",
+    "name": "OSIRIS-REx",
+    "agency": "NASA",
+    "status": "completed",
+    "launchDate": "2016-09-08T23:05:00Z",
+    "description": "Successfully collected samples from asteroid Bennu and returned them to Earth.",
+    "spacecraft": "OSIRIS-REx",
+    "missionType": "sample-return",
+    "timeline": [
+      { "date": "2016-09-08", "event": "Launch", "completed": true },
+      { "date": "2018-12-03", "event": "Arrival at Bennu", "completed": true },
+      { "date": "2020-10-20", "event": "Sample collection", "completed": true },
+      { "date": "2023-09-24", "event": "Sample return to Earth", "completed": true }
+    ],
+    "impact": "OSIRIS-REx returned the largest asteroid sample ever collected. Studying these pristine materials helps us understand the early solar system and the origins of life on Earth.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "hubble",
+    "name": "Hubble Space Telescope",
+    "agency": "NASA/ESA",
+    "status": "active",
+    "launchDate": "1990-04-24T12:33:00Z",
+    "description": "Iconic space telescope that has transformed our understanding of the universe for over 30 years.",
+    "spacecraft": "Hubble Space Telescope",
+    "missionType": "space-observatory",
+    "timeline": [
+      { "date": "1990-04-24", "event": "Launch", "completed": true },
+      { "date": "1993-12-02", "event": "First servicing mission (corrective optics)", "completed": true },
+      { "date": "2009-05-11", "event": "Final servicing mission", "completed": true },
+      { "date": "2024+", "event": "Continuing observations", "completed": false }
+    ],
+    "impact": "Hubble has made over 1.5 million observations, helping determine the age of the universe, discovering dark energy, finding exoplanets, and capturing stunning images that inspire people worldwide.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "dart",
+    "name": "DART (Double Asteroid Redirection Test)",
+    "agency": "NASA",
+    "status": "completed",
+    "launchDate": "2021-11-24T06:21:00Z",
+    "description": "First mission to test planetary defense by deliberately crashing into an asteroid to change its orbit.",
+    "spacecraft": "DART Impactor",
+    "missionType": "planetary-defense",
+    "timeline": [
+      { "date": "2021-11-24", "event": "Launch", "completed": true },
+      { "date": "2022-09-26", "event": "Impact with Dimorphos asteroid", "completed": true },
+      { "date": "2022-10-11", "event": "Confirmed successful orbit change", "completed": true }
+    ],
+    "impact": "DART proved that kinetic impact can successfully deflect an asteroid. This technology could one day protect Earth from a hazardous asteroid on a collision course with our planet.",
+    "images": [],
+    "crew": null
+  },
+  {
+    "id": "starlink",
+    "name": "Starlink",
+    "agency": "SpaceX",
+    "status": "active",
+    "launchDate": "2019-05-23T22:30:00Z",
+    "description": "Satellite internet constellation providing global broadband coverage, especially to underserved areas.",
+    "spacecraft": "Starlink Satellites (5000+)",
+    "missionType": "communication",
+    "timeline": [
+      { "date": "2019-05-23", "event": "First 60 satellites launched", "completed": true },
+      { "date": "2020-10-01", "event": "Public beta testing begins", "completed": true },
+      { "date": "2024+", "event": "Ongoing constellation expansion", "completed": false }
+    ],
+    "impact": "Starlink brings high-speed internet to remote and rural areas without traditional internet infrastructure. It has also provided communications during natural disasters and conflicts.",
+    "images": [],
+    "crew": null
+  }
+]

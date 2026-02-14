@@ -1,0 +1,174 @@
+{
+  "categories": [
+    {
+      "id": "climate",
+      "name": "Climate Monitoring",
+      "icon": "earth",
+      "description": "Satellites track global temperature, ice sheets, sea levels, and greenhouse gases to understand climate change.",
+      "satelliteCount": 25,
+      "color": "electric-blue",
+      "stories": [
+        {
+          "id": "climate-1",
+          "title": "Tracking Global Temperature Rise",
+          "description": "NASA and NOAA satellites continuously measure Earth's temperature from space, creating a complete global picture. This data shows that Earth's average temperature has risen about 1.1°C since the late 1800s, with most warming occurring in the past 40 years.",
+          "satellites": ["MODIS", "AIRS", "Landsat"],
+          "example": "In 2023, satellites confirmed it was the warmest year on record globally. This data helps scientists predict future climate patterns and prepare communities for change.",
+          "image": null
+        },
+        {
+          "id": "climate-2",
+          "title": "Measuring Melting Ice Sheets",
+          "description": "Satellites use radar and laser instruments to measure the thickness and movement of ice sheets in Greenland and Antarctica. These measurements show ice is melting faster than expected.",
+          "satellites": ["ICESat-2", "CryoSat-2", "GRACE-FO"],
+          "example": "Data from ICESat-2 revealed that Greenland lost an average of 279 billion tons of ice per year between 2002 and 2021, contributing to sea level rise.",
+          "image": null
+        },
+        {
+          "id": "climate-3",
+          "title": "Monitoring Carbon Dioxide Levels",
+          "description": "Specialized satellites measure CO₂ concentrations across the globe, identifying emission sources and helping track climate commitments.",
+          "satellites": ["OCO-2", "OCO-3", "GOSAT"],
+          "example": "OCO-2 discovered that tropical forests absorb less CO₂ during droughts, making climate change potentially worse than models  predicted.",
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "agriculture",
+      "name": "Agriculture & Food Security",
+      "icon": "leaf",
+      "description": "Satellites help farmers optimize crops, predict harvests, and respond to droughts and pests.",
+      "satelliteCount": 18,
+      "color": "green-400",
+      "stories": [
+        {
+          "id": "ag-1",
+          "title": "Precision Farming from Space",
+          "description": "Satellites provide farmers with detailed information about soil moisture, crop health, and field conditions. This allows farmers to use water, fertilizer, and pesticides more efficiently.",
+          "satellites": ["Landsat", "Sentinel-2", "SMAP"],
+          "example": "In California, farmers use satellite data to detect exactly which parts of their fields need watering, saving millions of gallons of water during droughts while maintaining crop yields.",
+          "image": null
+        },
+        {
+          "id": "ag-2",
+          "title": "Early Warning for Crop Failures",
+          "description": "By monitoring vegetation health and weather patterns, satellites can predict crop failures weeks or months in advance, allowing humanitarian organizations to respond before famine occurs.",
+          "satellites": ["MODIS", "VIIRS", "Sentinel-2"],
+          "example": "In 2022, satellite data warned of poor harvests in East Africa months before the crisis peaked, enabling aid organizations to deploy food assistance early.",
+          "image": null
+        },
+        {
+          "id": "ag-3",
+          "title": "Fighting Locust Swarms",
+          "description": "Satellites track environmental conditions that lead to desert locust outbreaks, which can devastate crops across Africa and Asia.",
+          "satellites": ["Landsat", "MODIS", "Sentinel"],
+          "example": "In 2020, satellite monitoring helped predict and track massive locust swarms in East Africa, directing ground teams to spray breeding sites before swarms could form.",
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "disaster",
+      "name": "Disaster Response",
+      "icon": "alert-triangle",
+      "description": "Satellites detect and monitor natural disasters, helping save lives and coordinate emergency response.",
+      "satelliteCount": 30,
+      "color": "red-500",
+      "stories": [
+        {
+          "id": "disaster-1",
+          "title": "Hurricane Tracking and Forecasting",
+          "description": "Weather satellites monitor hurricanes 24/7, providing critical data that helps forecasters predict their path, intensity, and timing. This gives people time to evacuate and prepare.",
+          "satellites": ["GOES-R", "JPSS", "Himawari"],
+          "example": "Before Hurricane Ian hit Florida in September 2022, satellites tracked it across the Atlantic, giving residents five days of warning to evacuate. This early warning likely saved thousands of lives.",
+          "image": null
+        },
+        {
+          "id": "disaster-2",
+          "title": "Mapping Flood Damage",
+          "description": "After floods occur, satellites instantly map affected areas, showing emergency responders where people are trapped and how to reach them.",
+          "satellites": ["Sentinel-1", "RADARSAT", "Landsat"],
+          "example": "When catastrophic floods hit Pakistan in 2022, affecting 33 million people, satellite maps showed one-third of the country was underwater, guiding relief efforts to the hardest-hit areas.",
+          "image": null
+        },
+        {
+          "id": "disaster-3",
+          "title": "Wildfire Detection and Monitoring",
+          "description": "Satellites detect wildfires within minutes of ignition and track their spread in real-time, even through thick smoke.",
+          "satellites": ["MODIS", "VIIRS", "GOES"],
+          "example": "During the 2023 Canadian wildfires, satellites detected fires in remote areas before ground crews even knew they existed, and tracked smoke plumes affecting air quality across North America.",
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "name": "Navigation & Positioning",
+      "icon": "navigation",
+      "description": "GPS and other navigation satellites enable everything from smartphone maps to airplane navigation and emergency rescue.",
+      "satelliteCount": 120,
+      "color": "amber-400",
+      "stories": [
+        {
+          "id": "nav-1",
+          "title": "Emergency Rescue Coordination",
+          "description": "GPS satellites help emergency services locate people in distress, from hikers lost in the wilderness to boats in trouble at sea.",
+          "satellites": ["GPS", "GLONASS", "Galileo"],
+          "example": "In 2023, a hiker lost in the Sierra Nevada mountains for 10 days was rescued after search teams used GPS data from their last known cell phone signal to narrow the search area.",
+          "image": null
+        },
+        {
+          "id": "nav-2",
+          "title": "Aviation Safety",
+          "description": "Modern aircraft rely on GPS for navigation, approach, and landing. This makes flying safer and more efficient, even in bad weather.",
+          "satellites": ["GPS", "WAAS"],
+          "example": "GPS enables aircraft to land safely in low visibility conditions. Without it, thousands of flights would be canceled or diverted during bad weather.",
+          "image": null
+        },
+        {
+          "id": "nav-3",
+          "title": "Banking and Financial Systems",
+          "description": "GPS satellites provide precise time signals that synchronize ATMs, stock markets, and digital transactions worldwide.",
+          "satellites": ["GPS", "Galileo"],
+          "example": "If GPS  failed, credit card transactions, ATM withdrawals, and stock trades would stop working because the systems rely on GPS time stamps to prevent fraud and ensure accuracy.",
+          "image": null
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Communication",
+      "icon": "radio",
+      "description": "Communication satellites connect remote areas, enable global broadcasts, and provide internet access worldwide.",
+      "satelliteCount": 450,
+      "color": "purple-400",
+      "stories": [
+        {
+          "id": "comm-1",
+          "title": "Internet for Remote Communities",
+          "description": "Communication satellites bring internet and phone service to remote areas where cables and cell towers can't reach - from small island nations to rural villages.",
+          "satellites": ["Starlink", "Viasat", "OneWeb"],
+          "example": "In the Amazon rainforest, indigenous communities use satellite internet to access education, healthcare consultations, and connect with the outside world for the first time.",
+          "image": null
+        },
+        {
+          "id": "comm-2",
+          "title": "Disaster Communication Lifeline",
+          "description": "When earthquakes, hurricanes, or floods destroy ground-based communication systems, satellite phones and internet provide the critical link for rescue operations.",
+          "satellites": ["Inmarsat", "Iridium", "Starlink"],
+          "example": "After the 2023 Turkey-Syria earthquake destroyed cell towers, satellite phones were rushed in to help rescuers coordinate efforts and survivors contact loved ones.",
+          "image": null
+        },
+        {
+          "id": "comm-3",
+          "title": "Telemedicine in Remote Areas",
+          "description": "Satellite connections enable doctors to diagnose and treat patients in remote locations via video consultations and digital medical equipment.",
+          "satellites": ["Viasat", "Intelsat"],
+          "example": "In rural Alaska, satellite telemedicine allows patients to consult with specialists thousands of miles away, avoiding expensive and dangerous trips for routine care.",
+          "image": null
+        }
+      ]
+    }
+  ]
+}

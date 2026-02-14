@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "name": "ISS Evening Pass",
+    "type": "satellite",
+    "date": "2026-02-15T19:45:00Z",
+    "description": "The International Space Station will be visible in the evening sky, appearing as a bright moving 'star'.",
+    "viewingInstructions": "Look towards the northwest horizon around 7:45 PM. The ISS will rise from the northwest and move across the sky towards the southeast. The pass will last approximately 6 minutes and will be very bright (magnitude -3.2).",
+    "maxElevation": 67,
+    "brightness": -3.2,
+    "visibility": "excellent"
+  },
+  {
+    "id": "2",
+    "name": "Jupiter at Opposition",
+    "type": "planet",
+    "date": "2026-02-16T00:00:00Z",
+    "description": "Jupiter reaches opposition, appearing at its brightest and largest in the night sky.",
+    "viewingInstructions": "Jupiter will be visible all night long, rising in the east at sunset and setting in the west at sunrise. Look for the brightest 'star' in the sky. Even with binoculars, you can see its four largest moons!",
+    "maxElevation": 75,
+    "brightness": -2.8,
+    "visibility": "excellent"
+  },
+  {
+    "id": "3",
+    "name": "Waxing Gibbous Moon",
+    "type": "moon",
+    "date": "2026-02-17T20:00:00Z",
+    "description": "The Moon will be 85% illuminated, perfect for observing lunar features.",
+    "viewingInstructions": "The Moon will be high in the southern sky after sunset. This phase is excellent for viewing craters and mountains along the terminator (the line between light and dark). Use binoculars or a telescope for best views.",
+    "maxElevation": 68,
+    "brightness": -12.4,
+    "visibility": "excellent"
+  },
+  {
+    "id": "4",
+    "name": "Venus Morning Star",
+    "type": "planet",
+    "date": "2026-02-18T06:30:00Z",
+    "description": "Venus shines brilliantly as the 'Morning Star' before sunrise.",
+    "viewingInstructions": "Wake up early and look towards the eastern horizon about an hour before sunrise. Venus will be the brightest object in the sky after the Moon. Through a telescope, you can see its crescent phase.",
+    "maxElevation": 22,
+    "brightness": -4.2,
+    "visibility": "excellent"
+  },
+  {
+    "id": "5",
+    "name": "Mars Close Approach",
+    "type": "planet",
+    "date": "2026-02-19T22:00:00Z",
+    "description": "Mars makes a close approach to Earth, appearing bright and reddish in the night sky.",
+    "viewingInstructions": "Look for the distinctive red-orange 'star' in the eastern sky after 10 PM. Mars will be bright enough to see even from light-polluted cities. With a telescope, you might spot some surface features and the polar ice caps.",
+    "maxElevation": 52,
+    "brightness": -1.4,
+    "visibility": "good"
+  },
+  {
+    "id": "6",
+    "name": "Orion Nebula Viewing",
+    "type": "deep-sky",
+    "date": "2026-02-20T21:00:00Z",
+    "description": "Perfect conditions for viewing the spectacular Orion Nebula (M42).",
+    "viewingInstructions": "Locate the constellation Orion in the southern sky. Look at the three stars of Orion's Belt, then move down to the 'sword' hanging from the belt. The middle 'star' is actually the Orion Nebula - a stellar nursery 1,344 light-years away. Even binoculars will show its fuzzy, greenish glow.",
+    "maxElevation": 58,
+    "brightness": 4.0,
+    "visibility": "good"
+  },
+  {
+    "id": "7",
+    "name": "Saturn Rings at Maximum Tilt",
+    "type": "planet",
+    "date": "2026-02-21T23:00:00Z",
+    "description": "Saturn's magnificent rings are tilted at a favorable angle for Earth-based observers.",
+    "viewingInstructions": "Look for Saturn in the western sky after sunset. It will appear as a bright, yellowish 'star'. Even a small telescope will reveal its iconic ring system. The rings are currently tilted 15.9 degrees towards Earth, providing excellent views.",
+    "maxElevation": 35,
+    "brightness": 0.6,
+    "visibility": "good"
+  },
+  {
+    "id": "8",
+    "name": "Andromeda Galaxy Peak Viewing",
+    "type": "deep-sky",
+    "date": "2026-02-22T20:30:00Z",
+    "description": "Dark skies provide excellent opportunity to spot the Andromeda Galaxy (M31).",
+    "viewingInstructions": "This requires dark skies away from city lights. Locate the constellation Andromeda in the northwestern sky. The galaxy appears as a faint, fuzzy oval patch. It's the most distant object visible to the naked eye at 2.5 million light-years away. Binoculars make it much easier to see.",
+    "maxElevation": 42,
+    "brightness": 3.4,
+    "visibility": "fair"
+  }
+]
