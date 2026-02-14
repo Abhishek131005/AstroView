@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Rocket } from 'lucide-react';
+import { MissionList } from '@/components/missions/MissionList';
 
 function MissionsPage() {
   return (
@@ -17,20 +18,13 @@ function MissionsPage() {
             Mission Control
           </h1>
           <p className="text-muted-gray mt-1">
-            Explore current and upcoming space missions
+            Explore current and upcoming space missions from around the world
           </p>
         </div>
       </div>
 
-      {/* Mission grid will be added in later phases */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 h-64 flex items-center justify-center">
-          <p className="text-muted-gray">Active missions</p>
-        </div>
-        <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 h-64 flex items-center justify-center">
-          <p className="text-muted-gray">Upcoming launches</p>
-        </div>
-      </div>
+      {/* Mission List */}
+      <MissionList />
     </motion.div>
   );
 }

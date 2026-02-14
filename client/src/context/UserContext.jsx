@@ -143,4 +143,4 @@ function useUserContext() {
   return context;
 }
 
-export { UserProvider, useUserContext };
+export { UserContext, UserProvider, useUserContext };

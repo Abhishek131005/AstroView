@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { APODHero } from '@/components/home/APODHero';
+import { LocationPicker } from '@/components/home/LocationPicker';
+import { SkyConditions } from '@/components/home/SkyConditions';
+import { EventList } from '@/components/home/EventList';
 
 function HomePage() {
   return (
@@ -9,40 +12,29 @@ function HomePage() {
       transition={{ duration: 0.5 }}
       className="space-y-8"
     >
-      {/* Hero Section */}
-      <div className="text-center py-12">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <Sparkles className="w-16 h-16 mx-auto mb-4 text-electric-blue" />
-          <h1 className="text-5xl md:text-6xl font-bold font-heading gradient-text mb-4">
-            Tonight's Sky
-          </h1>
-          <p className="text-xl text-muted-gray max-w-2xl mx-auto">
-            Discover what's happening in space right now
+      {/* Hero Section - Astronomy Picture of the Day */}
+      <section>
+        <APODHero />
+      </section>
+
+      {/* Location & Sky Conditions */}
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <LocationPicker />
+        <SkyConditions />
+      </section>
+
+      {/* Upcoming Events */}
+      <section>
+        <div className="mb-6">
+          <h2 className="text-3xl font-bold text-white mb-2">
+            <span className="gradient-text">Upcoming Celestial Events</span>
+          </h2>
+          <p className="text-muted-gray">
+            Don't miss these amazing astronomical events happening this week
           </p>
-        </motion.div>
-      </div>
-
-      {/* Content sections will be added in later phases */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Astronomy Picture of the Day */}
-        <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 h-64 flex items-center justify-center">
-          <p className="text-muted-gray">Astronomy Picture of the Day</p>
         </div>
-
-        {/* ISS Location */}
-        <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 h-64 flex items-center justify-center">
-          <p className="text-muted-gray">ISS Location</p>
-        </div>
-
-        {/* Upcoming Events */}
-        <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 h-64 flex items-center justify-center">
-          <p className="text-muted-gray">Upcoming Events</p>
-        </div>
-      </div>
+        <EventList />
+      </section>
     </motion.div>
   );
 }

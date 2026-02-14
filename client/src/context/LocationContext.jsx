@@ -108,4 +108,4 @@ function useLocationContext() {
   return context;
 }
 
-export { LocationProvider, useLocationContext };
+export { LocationContext, LocationProvider, useLocationContext };
