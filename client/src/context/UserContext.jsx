@@ -1,6 +1,6 @@
 import { createContext, useContext, useCallback } from 'react';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { STORAGE_KEYS } from '@/utils/constants';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { STORAGE_KEYS } from '../utils/constants';
 
 const UserContext = createContext();
 
@@ -11,8 +11,24 @@ function UserProvider({ children }) {
     STORAGE_KEYS.COMPLETED_LEARNING_PATHS,
     []
   );
+  const [learningProgress, setLearningProgress] = useLocalStorage(
+    STORAGE_KEYS.LEARNING_PROGRESS,
+    {}
+  );
 
   // Update quiz score for a specific quiz
+  const updateQuizScore = useCallback((quizId, score) => {
+    setQuizScores(prev => ({
+      ...prev,
+      [quizId]: {
+        quizId,
+        score,
+        timestamp: new Date().toISOString(),
+      },
+    }));
+  }, [setQuizScores]);
+
+  // Legacy support for updateScore
   const updateScore = useCallback((quizId, score, maxScore) => {
     setQuizScores(prev => ({
       ...prev,
@@ -24,20 +40,36 @@ function UserProvider({ children }) {
       },
     }));
   }, [setQuizScores]);
-
   // Add a new badge
-  const addBadge = useCallback((badge) => {
+  const addBadge = useCallback((badgeId) => {
     setBadges(prev => {
       // Check if badge already exists
-      const exists = prev.some(b => b.id === badge.id);
-      if (exists) return prev;
+      if (prev.includes(badgeId)) return prev;
       
-      return [...prev, {
-        ...badge,
-        earnedAt: new Date().toISOString(),
-      }];
+      return [...prev, badgeId];
     });
   }, [setBadges]);
+
+  // Update learning progress
+  const updateLearningProgress = useCallback((pathId, stepId, stepIndex) => {
+    setLearningProgress(prev => {
+      const pathProgress = prev[pathId] || { completedSteps: [], lastActiveStep: 0 };
+      
+      // Add step to completed steps if not already there
+      const completedSteps = pathProgress.completedSteps.includes(stepId)
+        ? pathProgress.completedSteps
+        : [...pathProgress.completedSteps, stepId];
+      
+      return {
+        ...prev,
+        [pathId]: {
+          completedSteps,
+          lastActiveStep: stepIndex + 1, // Move to next step
+          lastUpdated: new Date().toISOString(),
+        },
+      };
+    });
+  }, [setLearningProgress]);
 
   // Mark a learning path step as complete
   const completeStep = useCallback((pathId, stepId) => {
@@ -116,8 +148,11 @@ function UserProvider({ children }) {
     quizScores,
     badges,
     completedPaths,
+    learningProgress,
     updateScore,
+    updateQuizScore,
     addBadge,
+    updateLearningProgress,
     completeStep,
     isPathCompleted,
     getPathProgress,

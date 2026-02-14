@@ -1,0 +1,282 @@
+[
+  {
+    "term": "Aphelion",
+    "pronunciation": "uh-FEE-lee-on",
+    "definition": "The point in a planet's orbit where it is farthest from the Sun. Earth reaches aphelion around July 4th each year.",
+    "category": "Orbital Mechanics",
+    "visualExample": "Imagine Earth's orbit as an oval. Aphelion is the point at the far end of the oval, away from the Sun."
+  },
+  {
+    "term": "Perihelion",
+    "pronunciation": "pair-ih-HEE-lee-on",
+    "definition": "The point in a planet's orbit where it is closest to the Sun. Earth reaches perihelion around January 3rd each year.",
+    "category": "Orbital Mechanics",
+    "visualExample": "Using the oval orbit analogy, perihelion is the point at the near end, closest to the Sun."
+  },
+  {
+    "term": "Asteroid",
+    "pronunciation": "AS-ter-oyd",
+    "definition": "A small rocky object that orbits the Sun, typically found in the asteroid belt between Mars and Jupiter. Most asteroids are irregularly shaped.",
+    "category": "Solar System",
+    "visualExample": "Think of asteroids as space rocks ranging from tiny pebbles to objects as large as mountains."
+  },
+  {
+    "term": "Comet",
+    "pronunciation": "KOM-it",
+    "definition": "A frozen ball of ice, dust, and rock that orbits the Sun. When close to the Sun, it develops a glowing tail due to evaporating ice.",
+    "category": "Solar System",
+    "visualExample": "Picture a dirty snowball in space that grows a tail when it gets warm - that's a comet!"
+  },
+  {
+    "term": "Constellation",
+    "pronunciation": "kon-stuh-LAY-shun",
+    "definition": "A group of stars that appear to form a pattern in the sky. There are 88 official constellations recognized by astronomers.",
+    "category": "Stars",
+    "visualExample": "Like connect-the-dots in the night sky - Orion the Hunter and the Big Dipper are famous examples."
+  },
+  {
+    "term": "Eclipse",
+    "pronunciation": "ih-KLIPS",
+    "definition": "When one celestial body moves into the shadow of another. Solar eclipses occur when the Moon blocks the Sun; lunar eclipses when Earth blocks sunlight from the Moon.",
+    "category": "Phenomena",
+    "visualExample": "Think of it as cosmic hide-and-seek - one object blocks the light from another."
+  },
+  {
+    "term": "Geostationary Orbit",
+    "pronunciation": "jee-oh-STAY-shun-air-ee OR-bit",
+    "definition": "An orbit 35,786 km above Earth's equator where satellites move at the same speed as Earth's rotation, appearing stationary from the ground.",
+    "category": "Orbital Mechanics",
+    "visualExample": "Like a bird hovering in one spot while the ground rotates beneath it - perfect for weather and communication satellites."
+  },
+  {
+    "term": "International Space Station",
+    "pronunciation": "in-ter-NASH-un-al SPACE STAY-shun",
+    "definition": "A large spacecraft orbiting Earth where astronauts live and conduct scientific experiments. It orbits at about 400 km altitude.",
+    "category": "Space Technology",
+    "visualExample": "A football-field-sized laboratory orbiting Earth every 90 minutes at 28,000 km/h."
+  },
+  {
+    "term": "Light Year",
+    "pronunciation": "LITE YEER",
+    "definition": "The distance light travels in one year - about 9.46 trillion kilometers. It's a unit used to measure distances between stars.",
+    "category": "Measurements",
+    "visualExample": "If you could drive at highway speed, it would take about 10 million years to travel one light year!"
+  },
+  {
+    "term": "Meteor",
+    "pronunciation": "MEE-tee-or",
+    "definition": "A streak of light in the sky caused by a small piece of space debris burning up in Earth's atmosphere. Also called a shooting star.",
+    "category": "Phenomena",
+    "visualExample": "The bright streaks you see during meteor showers - they're not stars falling, but tiny rocks burning up."
+  },
+  {
+    "term": "Meteorite",
+    "pronunciation": "MEE-tee-or-ite",
+    "definition": "A piece of rock or metal from space that survives passing through Earth's atmosphere and lands on the surface.",
+    "category": "Solar System",
+    "visualExample": "A meteor that made it all the way to the ground without burning up completely."
+  },
+  {
+    "term": "Nebula",
+    "pronunciation": "NEB-yoo-luh",
+    "definition": "A giant cloud of dust and gas in space. Some nebulae are where new stars are born; others are created when old stars die.",
+    "category": "Stars",
+    "visualExample": "Cosmic clouds that can be nurseries for baby stars or the beautiful remains of dying stars."
+  },
+  {
+    "term": "Orbit",
+    "pronunciation": "OR-bit",
+    "definition": "The curved path an object takes as it moves around another object due to gravity. Planets orbit the Sun; moons orbit planets.",
+    "category": "Orbital Mechanics",
+    "visualExample": "Like a ball on a string being swung in a circle - gravity is the invisible string keeping objects in orbit."
+  },
+  {
+    "term": "Payload",
+    "pronunciation": "PAY-lohd",
+    "definition": "The cargo carried by a spacecraft or rocket, such as satellites, scientific instruments, or supplies for astronauts.",
+    "category": "Space Technology",
+    "visualExample": "Everything a rocket carries into space that isn't fuel or the rocket itself."
+  },
+  {
+    "term": "Retrograde Motion",
+    "pronunciation": "RET-roh-grayd MOH-shun",
+    "definition": "When a planet appears to move backward in the sky relative to the stars. This is an optical illusion caused by Earth passing the planet in orbit.",
+    "category": "Orbital Mechanics",
+    "visualExample": "Like when you pass a slower car on the highway - it seems to move backward relative to you."
+  },
+  {
+    "term": "Satellite",
+    "pronunciation": "SAT-uh-lite",
+    "definition": "Any object that orbits another object. The Moon is a natural satellite of Earth; GPS satellites are artificial satellites.",
+    "category": "Space Technology",
+    "visualExample": "Anything in orbit around something else - from natural moons to human-made spacecraft."
+  },
+  {
+    "term": "Solar Flare",
+    "pronunciation": "SOH-lar FLAIR",
+    "definition": "A sudden burst of energy from the Sun's surface, releasing intense radiation. Large flares can disrupt radio communications and power grids on Earth.",
+    "category": "Phenomena",
+    "visualExample": "Explosive bursts of energy from the Sun, like giant magnetic eruptions."
+  },
+  {
+    "term": "Solar Wind",
+    "pronunciation": "SOH-lar WIND",
+    "definition": "A stream of charged particles constantly flowing outward from the Sun in all directions. It creates auroras when it interacts with Earth's magnetic field.",
+    "category": "Phenomena",
+    "visualExample": "An invisible river of particles flowing from the Sun - responsible for the Northern and Southern Lights."
+  },
+  {
+    "term": "Supernova",
+    "pronunciation": "soo-per-NOH-vuh",
+    "definition": "The explosive death of a massive star, briefly becoming as bright as an entire galaxy. It can create neutron stars or black holes.",
+    "category": "Stars",
+    "visualExample": "The most violent explosion in the universe - a dying star's last, brilliant moment."
+  },
+  {
+    "term": "Trajectory",
+    "pronunciation": "truh-JEK-tor-ee",
+    "definition": "The path followed by an object moving through space, whether it's a satellite, rocket, or asteroid.",
+    "category": "Orbital Mechanics",
+    "visualExample": "The flight path of any object in space - like an arc a ball makes when you throw it."
+  },
+  {
+    "term": "Zenith",
+    "pronunciation": "ZEE-nith",
+    "definition": "The point in the sky directly above an observer. When the Sun is at zenith, it casts no shadow.",
+    "category": "Navigation",
+    "visualExample": "Look straight up - that's your zenith point."
+  },
+  {
+    "term": "Aurora",
+    "pronunciation": "aw-ROR-uh",
+    "definition": "Colorful lights in the sky near Earth's poles, caused by solar wind particles colliding with gases in the atmosphere. Also called Northern or Southern Lights.",
+    "category": "Phenomena",
+    "visualExample": "Nature's light show - dancing curtains of green, red, and purple light in polar skies."
+  },
+  {
+    "term": "Black Hole",
+    "pronunciation": "BLACK HOHL",
+    "definition": "A region in space with gravity so strong that nothing, not even light, can escape from it. Formed when massive stars collapse.",
+    "category": "Stars",
+    "visualExample": "Imagine a cosmic vacuum cleaner with infinite suction - nothing can escape once it gets too close."
+  },
+  {
+    "term": "Equinox",
+    "pronunciation": "EE-kwih-noks",
+    "definition": "The two days each year when day and night are equal in length (about March 20 and September 22). Happens when the Sun crosses the celestial equator.",
+    "category": "Phenomena",
+    "visualExample": "The perfect balance point between seasons - equal daylight and darkness everywhere on Earth."
+  },
+  {
+    "term": "Exoplanet",
+    "pronunciation": "EKS-oh-plan-it",
+    "definition": "A planet that orbits a star outside our solar system. Thousands have been discovered using telescopes.",
+    "category": "Solar System",
+    "visualExample": "Planets orbiting other stars - potential homes for alien life we haven't found yet."
+  },
+  {
+    "term": "Galaxy",
+    "pronunciation": "GAL-ak-see",
+    "definition": "A massive collection of stars, gas, and dust held together by gravity. Our galaxy, the Milky Way, contains over 100 billion stars.",
+    "category": "Universe",
+    "visualExample": "A cosmic city of stars - our Milky Way is just one of billions of galaxies in the universe."
+  },
+  {
+    "term": "Magnitude",
+    "pronunciation": "MAG-nih-tood",
+    "definition": "A measure of how bright a celestial object appears from Earth. Lower numbers are brighter; the Sun is -26.7, while the faintest stars visible are about +6.",
+    "category": "Measurements",
+    "visualExample": "A brightness scale where smaller numbers mean brighter objects - like golf scores!"
+  },
+  {
+    "term": "NASA",
+    "pronunciation": "NAH-suh",
+    "definition": "National Aeronautics and Space Administration - the U.S. government agency responsible for space exploration and aeronautics research.",
+    "category": "Space Technology",
+    "visualExample": "America's space agency - the folks who put astronauts on the Moon and rovers on Mars."
+  },
+  {
+    "term": "NORAD ID",
+    "pronunciation": "NOR-ad eye-DEE",
+    "definition": "A unique identification number assigned to every satellite and piece of space debris tracked by the North American Aerospace Defense Command.",
+    "category": "Space Technology",
+    "visualExample": "Like a license plate for satellites - every object in orbit has its own tracking number."
+  },
+  {
+    "term": "Orbital Period",
+    "pronunciation": "OR-bit-al PEER-ee-ud",
+    "definition": "The time it takes for an object to complete one full orbit around another object. Earth's orbital period around the Sun is 365.25 days.",
+    "category": "Orbital Mechanics",
+    "visualExample": "How long it takes to go around once - like one lap on a race track."
+  },
+  {
+    "term": "Perigee",
+    "pronunciation": "PAIR-ih-jee",
+    "definition": "The point in a satellite's orbit where it is closest to Earth. Opposite of apogee.",
+    "category": "Orbital Mechanics",
+    "visualExample": "The low point of a satellite's orbit around Earth - where it swoops closest to our planet."
+  },
+  {
+    "term": "Apogee",
+    "pronunciation": "AP-oh-jee",
+    "definition": "The point in a satellite's orbit where it is farthest from Earth. Opposite of perigee.",
+    "category": "Orbital Mechanics",
+    "visualExample": "The high point of a satellite's orbit around Earth - where it's most distant from our planet."
+  },
+  {
+    "term": "Radiation Belt",
+    "pronunciation": "ray-dee-AY-shun BELT",
+    "definition": "Zones of charged particles trapped by Earth's magnetic field. The Van Allen Belts are the most famous examples.",
+    "category": "Phenomena",
+    "visualExample": "Invisible donut-shaped zones around Earth filled with energetic particles - nature's radiation shields."
+  },
+  {
+    "term": "Solstice",
+    "pronunciation": "SOL-stis",
+    "definition": "The two days each year when the Sun reaches its highest or lowest point in the sky (around June 21 and December 21), marking the longest and shortest days.",
+    "category": "Phenomena",
+    "visualExample": "The turning points of the year - when we have the longest day (summer) or longest night (winter)."
+  },
+  {
+    "term": "Spacecraft",
+    "pronunciation": "SPACE-kraft",
+    "definition": "A vehicle designed to travel in space, either with or without crew. Includes satellites, probes, space stations, and crewed capsules.",
+    "category": "Space Technology",
+    "visualExample": "Any vehicle built for space travel - from tiny CubeSats to massive space stations."
+  },
+  {
+    "term": "Telemetry",
+    "pronunciation": "tuh-LEM-uh-tree",
+    "definition": "Data transmitted from a spacecraft to ground stations, including information about the spacecraft's health, position, and scientific measurements.",
+    "category": "Space Technology",
+    "visualExample": "The vital signs and status reports that spacecraft send back to Earth - like text messages from space."
+  },
+  {
+    "term": "Transit",
+    "pronunciation": "TRAN-zit",
+    "definition": "When a celestial object passes directly between an observer and another object. Mercury and Venus can transit across the Sun's face.",
+    "category": "Phenomena",
+    "visualExample": "When a smaller object crosses in front of a larger one - like a tiny dot moving across the Sun."
+  },
+  {
+    "term": "Umbra",
+    "pronunciation": "UM-bruh",
+    "definition": "The darkest part of a shadow where all light is blocked. During a total solar eclipse, observers in the umbra see the Sun completely covered.",
+    "category": "Phenomena",
+    "visualExample": "The darkest core of a shadow - where you're completely in the dark."
+  },
+  {
+    "term": "Penumbra",
+    "pronunciation": "peh-NUM-bruh",
+    "definition": "The lighter, outer part of a shadow where only some light is blocked. During a partial eclipse, observers in the penumbra see a partially covered Sun or Moon.",
+    "category": "Phenomena",
+    "visualExample": "The fuzzy edge of a shadow - where you're partially in the dark."
+  },
+  {
+    "term": "Velocity",
+    "pronunciation": "vuh-LOSS-ih-tee",
+    "definition": "The speed and direction of an object's motion. Orbital velocity is the speed needed to stay in orbit without falling.",
+    "category": "Measurements",
+    "visualExample": "How fast and in what direction something is moving - like speed with a direction arrow."
+  }
+]

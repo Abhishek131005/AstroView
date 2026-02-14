@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Calendar, Rocket } from 'lucide-react';
-import { Badge } from '@/components/common/Badge';
+import Badge from '@/components/common/Badge';
 import { formatDate } from '@/utils/formatters';
 
 const AGENCY_COLORS = {
@@ -78,4 +78,4 @@ function MissionCard({ mission, onClick }) {
   );
 }
 
-export { MissionCard };
+export default MissionCard;

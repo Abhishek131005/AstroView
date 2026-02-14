@@ -1,0 +1,39 @@
+{
+  "terms": {
+    "orbit": "An orbit is the path one object takes around another object in space. Think of it like a ball on a string - you swing the ball in a circle, and gravity is like the invisible string keeping planets and satellites going around in circles!",
+    "trajectory": "A trajectory is simply the path something takes through space. Like when you throw a ball, it makes an arc - that's its trajectory. Rockets and satellites have trajectories too!",
+    "aphelion": "Aphelion is when a planet is at its farthest point from the Sun during its orbit. Think of it like this: if the orbit is an oval racetrack, aphelion is the far turn, away from the Sun.",
+    "perihelion": "Perihelion is when a planet is closest to the Sun during its orbit. Using the racetrack idea, this is the near turn, closest to the Sun. Earth is actually closest to the Sun in January!",
+    "asteroid": "Asteroids are space rocks! They're like giant boulders floating around in space. Most are found between Mars and Jupiter in what we call the asteroid belt. They range from tiny pebbles to mountain-sized rocks.",
+    "comet": "A comet is like a dirty snowball in space! It's made of ice, dust, and rock. When it gets close to the Sun, the ice starts to melt and creates that famous glowing tail you see in pictures.",
+    "eclipse": "An eclipse is like cosmic hide-and-seek. A solar eclipse happens when the Moon moves in front of the Sun, blocking its light. A lunar eclipse is when Earth's shadow covers the Moon.",
+    "aurora": "Auroras (Northern and Southern Lights) are nature's light show! They happen when particles from the Sun hit our atmosphere near the poles, creating beautiful dancing lights in the sky - usually green, but sometimes red, purple, or blue.",
+    "black hole": "A black hole is a region in space with such strong gravity that nothing can escape it - not even light! It's like a cosmic vacuum cleaner that sucks everything in. They form when giant stars collapse.",
+    "galaxy": "A galaxy is a huge collection of stars, gas, and dust all held together by gravity. Our galaxy, the Milky Way, has over 100 billion stars! There are billions of galaxies in the universe.",
+    "light year": "A light year isn't a time - it's a distance! It's how far light travels in one year (about 9.46 trillion kilometers). We use it to measure the huge distances between stars.",
+    "meteor": "A meteor is what we call a 'shooting star' - but it's not actually a star! It's a small piece of space rock or dust burning up as it enters Earth's atmosphere at super high speed.",
+    "satellite": "A satellite is anything that goes around (orbits) another object. The Moon is a natural satellite of Earth. We also have thousands of human-made satellites orbiting Earth for things like GPS, weather forecasts, and TV!",
+    "solar flare": "A solar flare is a huge burst of energy from the Sun's surface. Imagine a massive explosion of light and radiation! Really big ones can mess with our satellites and even power grids on Earth."
+  },
+  "missions": {
+    "artemis": "The Artemis program is NASA's plan to send astronauts back to the Moon - including the first woman and person of color! The goal is to learn how to live and work on the Moon so we can eventually send people to Mars.",
+    "mars 2020": "Mars 2020 is the mission that sent the Perseverance rover to Mars. It's like a car-sized robot scientist exploring the Red Planet, looking for signs of ancient life and testing new technology for future human missions!",
+    "iss": "The International Space Station (ISS) is like a science laboratory in space! It's as big as a football field and orbits Earth every 90 minutes. Astronauts from different countries live there for months, doing experiments that can't be done on Earth.",
+    "voyager": "The Voyager missions launched two spacecraft in 1977 to explore the outer planets. They visited Jupiter, Saturn, Uranus, and Neptune, sending back amazing photos. Voyager 1 has even left our solar system and is now in interstellar space!"
+  },
+  "concepts": {
+    "microgravity": "Microgravity is what astronauts experience in space - it feels like floating! It's not that there's no gravity (there's always some gravity), but astronauts and their spacecraft are falling together around Earth, which makes everything feel weightless.",
+    "escape velocity": "Escape velocity is how fast you need to go to break free from a planet or moon's gravity. For Earth, that's about 40,000 km/h! That's why rockets need so much power - they have to reach this speed to get to space.",
+    "radiation belt": "Radiation belts are zones around Earth filled with charged particles trapped by our planet's magnetic field. They're like invisible donuts of energy surrounding Earth. The most famous ones are called the Van Allen Belts.",
+    "retrograde motion": "Retrograde motion is when a planet appears to move backward in the sky. It's actually an optical illusion! It happens when Earth passes by slower-moving outer planets, making them seem to go backwards - like when you pass a car on the highway and it looks like it's moving backward.",
+    "geostationary orbit": "A geostationary orbit is a special spot about 36,000 km above Earth's equator where a satellite moves at exactly the same speed as Earth spins. This makes it look like the satellite is hovering in one spot! Perfect for weather satellites and TV broadcasts.",
+    "orbital period": "Orbital period is simply how long it takes something to go around once. Earth's orbital period around the Sun is 365.25 days (one year). The Moon's orbital period around Earth is about 27 days."
+  },
+  "phenomena": {
+    "meteor shower": "A meteor shower is when Earth passes through a trail of dust left behind by a comet. As these tiny bits enter our atmosphere, they burn up and create lots of 'shooting stars' - sometimes dozens per hour!",
+    "solar eclipse": "A solar eclipse happens when the Moon passes between Earth and the Sun, blocking the Sun's light. It's an amazing coincidence that the Moon appears exactly the same size as the Sun in our sky, even though the Sun is 400 times bigger - it's also 400 times farther away!",
+    "lunar eclipse": "A lunar eclipse occurs when Earth gets between the Sun and Moon, casting a shadow on the Moon. The Moon often turns reddish-orange because Earth's atmosphere bends red sunlight onto the Moon's surface. That's why it's sometimes called a 'Blood Moon.'",
+    "supernova": "A supernova is the explosive death of a massive star. For a few weeks, a single dying star can shine as bright as an entire galaxy! It's one of the most powerful events in the universe.",
+    "northern lights": "The Northern Lights (Aurora Borealis) happen when particles from the Sun hit gases in Earth's atmosphere near the North Pole. This creates beautiful, dancing curtains of light - usually green, but sometimes red, purple, or blue!"
+  }
+}

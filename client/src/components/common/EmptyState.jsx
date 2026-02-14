@@ -41,4 +41,4 @@ function EmptyState({
   );
 }
 
-export { EmptyState };
+export default EmptyState;

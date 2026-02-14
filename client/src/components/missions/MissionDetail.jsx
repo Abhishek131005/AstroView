@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Rocket, Target, CheckCircle, Circle, Image as ImageIcon, Users, Sparkles } from 'lucide-react';
-import { Badge } from '@/components/common/Badge';
+import Badge from '@/components/common/Badge';
 import { formatDate } from '@/utils/formatters';
 
 const STATUS_VARIANTS = {
@@ -254,4 +254,4 @@ function MissionDetail({ mission, onClose }) {
   );
 }
 
-export { MissionDetail };
+export default MissionDetail;

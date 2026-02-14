@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Sparkles, Loader2 } from 'lucide-react';
 import { getAPOD } from '@/services/nasaService';
-import { Skeleton } from '@/components/common/Skeleton';
+import Skeleton from '@/components/common/Skeleton';
 import { formatDate } from '@/utils/formatters';
 
 function APODHero() {

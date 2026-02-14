@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Loader2, Navigation, Edit3 } from 'lucide-react';
 import { LocationContext } from '@/context/LocationContext';
-import { Button } from '@/components/common/Button';
+import Button from '@/components/common/Button';
 
 function LocationPicker() {
   const { location, isLoading, error, setLocation, autoDetect } = useContext(LocationContext);

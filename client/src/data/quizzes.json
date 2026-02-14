@@ -1,0 +1,261 @@
+[
+  {
+    "id": "basics-101",
+    "title": "Space Basics 101",
+    "description": "Test your knowledge of fundamental space concepts and terminology.",
+    "questions": [
+      {
+        "question": "What is the point in Earth's orbit where it is closest to the Sun called?",
+        "options": ["Aphelion", "Perihelion", "Perigee", "Apogee"],
+        "correctAnswer": 1,
+        "explanation": "Perihelion is when Earth is closest to the Sun (around January 3rd). Aphelion is when we're farthest away. Perigee and apogee refer to distances from Earth, not the Sun."
+      },
+      {
+        "question": "What causes a meteor to appear as a streak of light in the sky?",
+        "options": ["It's a falling star", "It's burning up in Earth's atmosphere", "It's reflecting sunlight", "It's a laser from aliens"],
+        "correctAnswer": 1,
+        "explanation": "Meteors are small pieces of space debris that burn up due to friction when entering Earth's atmosphere at high speed. The bright streak is caused by the intense heat, not reflection or falling stars (stars don't fall!)."
+      },
+      {
+        "question": "How long does it take the International Space Station to orbit Earth once?",
+        "options": ["24 hours", "12 hours", "90 minutes", "45 minutes"],
+        "correctAnswer": 2,
+        "explanation": "The ISS completes one orbit around Earth every 90 minutes, traveling at about 28,000 km/h (17,500 mph). This means astronauts see 16 sunrises and sunsets every day!"
+      },
+      {
+        "question": "What is a light year?",
+        "options": ["A year on a planet with lots of light", "The time it takes light to travel around Earth", "The distance light travels in one year", "365 days of daylight"],
+        "correctAnswer": 2,
+        "explanation": "A light year is a unit of distance, not time. It's the distance light travels in one year - about 9.46 trillion kilometers! It's used to measure the vast distances between stars."
+      },
+      {
+        "question": "What are the Northern and Southern Lights (auroras) caused by?",
+        "options": ["Reflected moonlight", "Solar wind particles hitting Earth's atmosphere", "Light pollution", "Volcanic eruptions"],
+        "correctAnswer": 1,
+        "explanation": "Auroras are created when charged particles from the solar wind collide with gases in Earth's atmosphere near the poles. These collisions create beautiful curtains of colorful light."
+      }
+    ]
+  },
+  {
+    "id": "orbital-mechanics",
+    "title": "Orbital Mechanics",
+    "description": "Learn how objects move in space and the forces that govern their motion.",
+    "questions": [
+      {
+        "question": "What force keeps satellites in orbit around Earth?",
+        "options": ["Magnetism", "Air pressure", "Gravity", "Rocket thrust"],
+        "correctAnswer": 2,
+        "explanation": "Gravity is the invisible force that keeps satellites in orbit. A satellite is constantly falling toward Earth, but it's also moving sideways fast enough that it keeps missing Earth - that's an orbit!"
+      },
+      {
+        "question": "What is a geostationary orbit?",
+        "options": ["An orbit around a statue", "An orbit that stays above the same spot on Earth", "An orbit that goes around the equator", "An orbit at ground level"],
+        "correctAnswer": 1,
+        "explanation": "A geostationary orbit is 35,786 km above the equator where a satellite moves at exactly the same speed as Earth's rotation, appearing to hover over one spot. Perfect for communication and weather satellites!"
+      },
+      {
+        "question": "If you're in a spacecraft orbiting Earth, what keeps you weightless?",
+        "options": ["There's no gravity in space", "You're constantly falling", "Anti-gravity technology", "You're too far from Earth"],
+        "correctAnswer": 1,
+        "explanation": "Weightlessness in orbit isn't because there's no gravity - it's because you and your spacecraft are constantly falling toward Earth together. This creates the sensation of weightlessness, also called microgravity."
+      },
+      {
+        "question": "What happens to a satellite's speed as it gets closer to Earth?",
+        "options": ["It slows down", "It speeds up", "It stays the same", "It stops moving"],
+        "correctAnswer": 1,
+        "explanation": "Satellites move faster when they're closer to Earth due to stronger gravitational pull. The ISS at 400 km altitude moves at 28,000 km/h, while the Moon at 384,000 km moves at only 3,700 km/h."
+      },
+      {
+        "question": "What is orbital period?",
+        "options": ["How long an orbit lasts", "The time it takes to complete one orbit", "The shape of an orbit", "The speed of an orbit"],
+        "correctAnswer": 1,
+        "explanation": "Orbital period is the time it takes for an object to complete one full orbit around another object. Earth's orbital period around the Sun is 365.25 days; the Moon's orbital period around Earth is about 27.3 days."
+      }
+    ]
+  },
+  {
+    "id": "solar-system",
+    "title": "Solar System Explorer",
+    "description": "Explore the planets, moons, asteroids, and other objects in our cosmic neighborhood.",
+    "questions": [
+      {
+        "question": "Which planet has the most moons?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "correctAnswer": 1,
+        "explanation": "Saturn currently holds the record with 146 confirmed moons! Jupiter is a close second with 95 moons. New moons are still being discovered around the giant planets."
+      },
+      {
+        "question": "What is the main difference between an asteroid and a comet?",
+        "options": ["Size", "Composition", "Orbit shape", "Color"],
+        "correctAnswer": 1,
+        "explanation": "Asteroids are rocky and metallic, while comets are made of ice, dust, and rock. When comets get close to the Sun, their ice evaporates creating a glowing tail - asteroids don't do this!"
+      },
+      {
+        "question": "Where is the asteroid belt located?",
+        "options": ["Between Earth and Mars", "Between Mars and Jupiter", "Between Jupiter and Saturn", "Beyond Neptune"],
+        "correctAnswer": 1,
+        "explanation": "The main asteroid belt is located between Mars and Jupiter. It contains millions of rocky objects ranging from tiny pebbles to the dwarf planet Ceres, which is about 940 km in diameter."
+      },
+      {
+        "question": "What causes seasons on Earth?",
+        "options": ["Distance from the Sun", "Earth's axial tilt", "Solar flares", "The Moon's gravity"],
+        "correctAnswer": 1,
+        "explanation": "Earth's 23.5° axial tilt causes seasons. When the Northern Hemisphere tilts toward the Sun, it's summer there and winter in the Southern Hemisphere. Distance from the Sun plays a very small role."
+      },
+      {
+        "question": "What is a meteorite?",
+        "options": ["A meteor that's very bright", "A meteor shower", "A meteor that reaches the ground", "A small comet"],
+        "correctAnswer": 2,
+        "explanation": "A meteorite is a piece of rock or metal from space that survives passing through Earth's atmosphere and lands on the surface. Most meteors burn up completely, but some make it through!"
+      }
+    ]
+  },
+  {
+    "id": "space-phenomena",
+    "title": "Space Phenomena",
+    "description": "Learn about eclipses, auroras, solar flares, and other spectacular events in space.",
+    "questions": [
+      {
+        "question": "During a total solar eclipse, what blocks the Sun?",
+        "options": ["Earth", "The Moon", "Mars", "A comet"],
+        "correctAnswer": 1,
+        "explanation": "A solar eclipse occurs when the Moon passes between Earth and the Sun, blocking the Sun's light. The Moon is 400 times smaller than the Sun but also 400 times closer, making them appear the same size!"
+      },
+      {
+        "question": "What color is most commonly seen in auroras (Northern/Southern Lights)?",
+        "options": ["Red", "Green", "Blue", "Purple"],
+        "correctAnswer": 1,
+        "explanation": "Green is the most common aurora color, created when solar wind particles collide with oxygen molecules at altitudes of 100-300 km. Red auroras occur at higher altitudes, while blue and purple come from nitrogen."
+      },
+      {
+        "question": "What is a solar flare?",
+        "options": ["A new type of star", "A sudden burst of energy from the Sun", "A solar eclipse", "Sunlight reflecting off a planet"],
+        "correctAnswer": 1,
+        "explanation": "Solar flares are sudden, intense bursts of radiation from the Sun's surface. Large flares can disrupt radio communications, GPS, and even power grids on Earth when directed our way."
+      },
+      {
+        "question": "What is the darkest part of a shadow during an eclipse called?",
+        "options": ["Penumbra", "Umbra", "Corona", "Chromosphere"],
+        "correctAnswer": 1,
+        "explanation": "The umbra is the darkest part of a shadow where all direct light is blocked. During a total solar eclipse, only people in the Moon's umbra see the Sun completely covered."
+      },
+      {
+        "question": "What causes meteor showers?",
+        "options": ["Asteroid collisions", "Earth passing through comet debris", "Solar wind", "Volcanic eruptions"],
+        "correctAnswer": 1,
+        "explanation": "Meteor showers occur when Earth passes through trails of debris left behind by comets. As these tiny particles enter our atmosphere at high speed, they burn up, creating multiple shooting stars!"
+      }
+    ]
+  },
+  {
+    "id": "space-technology",
+    "title": "Space Technology",
+    "description": "Test your knowledge about satellites, spacecraft, and the technology that makes space exploration possible.",
+    "questions": [
+      {
+        "question": "What does NASA stand for?",
+        "options": ["North American Space Agency", "National Aeronautics and Space Administration", "National Aviation and Satellite Authority", "New Age Space Administration"],
+        "correctAnswer": 1,
+        "explanation": "NASA stands for National Aeronautics and Space Administration. It's the United States government agency responsible for the civilian space program, aeronautics research, and space research."
+      },
+      {
+        "question": "What is telemetry?",
+        "options": ["Long-distance measurement", "Data transmitted from spacecraft to Earth", "A type of telescope", "A unit of distance"],
+        "correctAnswer": 1,
+        "explanation": "Telemetry is data transmitted from a spacecraft to ground stations on Earth. It includes information about the spacecraft's health, position, velocity, temperature, and scientific measurements."
+      },
+      {
+        "question": "What is a NORAD ID?",
+        "options": ["A type of satellite", "A unique tracking number for space objects", "A military rank", "A space station module"],
+        "correctAnswer": 1,
+        "explanation": "NORAD ID is a unique identification number assigned to every satellite and piece of space debris tracked by the North American Aerospace Defense Command. The ISS, for example, is NORAD ID 25544."
+      },
+      {
+        "question": "What is the main purpose of a satellite in geostationary orbit?",
+        "options": ["To explore other planets", "To stay above the same location on Earth", "To photograph the Moon", "To block solar radiation"],
+        "correctAnswer": 1,
+        "explanation": "Geostationary satellites stay above the same spot on Earth, making them perfect for communication, weather monitoring, and broadcasting. A satellite dish on your house can point at one spot and always reach the satellite."
+      },
+      {
+        "question": "What is a payload in spaceflight?",
+        "options": ["The total weight of the rocket", "The cargo carried by the spacecraft", "The fuel used for launch", "The landing gear"],
+        "correctAnswer": 1,
+        "explanation": "Payload is the cargo carried by a spacecraft or rocket - such as satellites, scientific instruments, supplies, or astronauts. It's everything that's not the rocket structure or fuel."
+      }
+    ]
+  },
+  {
+    "id": "stars-galaxies",
+    "title": "Stars and Galaxies",
+    "description": "Journey beyond our solar system to learn about stars, galaxies, and the vast universe.",
+    "questions": [
+      {
+        "question": "What is a supernova?",
+        "options": ["A very bright star", "The explosive death of a massive star", "A new type of galaxy", "A black hole"],
+        "correctAnswer": 1,
+        "explanation": "A supernova is the spectacular explosion of a massive star at the end of its life. For a brief time, it can shine as bright as an entire galaxy containing billions of stars!"
+      },
+      {
+        "question": "What is a nebula?",
+        "options": ["A type of galaxy", "A giant cloud of dust and gas in space", "A dying star", "A dark region with no stars"],
+        "correctAnswer": 1,
+        "explanation": "A nebula is a giant cloud of dust and gas in space. Some nebulae are stellar nurseries where new stars are born, while others are the beautiful remains of dying stars."
+      },
+      {
+        "question": "What is our galaxy called?",
+        "options": ["Andromeda", "The Milky Way", "The Solar System", "The Cosmos"],
+        "correctAnswer": 1,
+        "explanation": "Our galaxy is called the Milky Way. It contains over 100 billion stars, including our Sun. On a clear night away from city lights, you can see it as a milky band across the sky."
+      },
+      {
+        "question": "What happens at the center of a black hole?",
+        "options": ["A giant star", "A wormhole to another dimension", "A singularity with infinite density", "Nothing - it's empty"],
+        "correctAnswer": 2,
+        "explanation": "At the center of a black hole is a singularity - a point where matter is compressed to infinite density. Our current physics can't fully describe what happens there!"
+      },
+      {
+        "question": "What is an exoplanet?",
+        "options": ["A planet outside our solar system", "A planet that exploded", "A former planet", "An extra-large planet"],
+        "correctAnswer": 0,
+        "explanation": "An exoplanet is a planet that orbits a star outside our solar system. Thousands have been discovered, and scientists are searching for ones that might support life!"
+      }
+    ]
+  },
+  {
+    "id": "space-exploration",
+    "title": "Space Exploration History",
+    "description": "Test your knowledge of humanity's greatest adventures beyond Earth.",
+    "questions": [
+      {
+        "question": "Who was the first human in space?",
+        "options": ["Neil Armstrong", "Yuri Gagarin", "Alan Shepard", "John Glenn"],
+        "correctAnswer": 1,
+        "explanation": "Soviet cosmonaut Yuri Gagarin became the first human in space on April 12, 1961, aboard Vostok 1. His historic flight lasted 108 minutes."
+      },
+      {
+        "question": "Which spacecraft first landed humans on the Moon?",
+        "options": ["Apollo 11", "Apollo 13", "Gemini 8", "Mercury 7"],
+        "correctAnswer": 0,
+        "explanation": "Apollo 11 landed the first humans on the Moon on July 20, 1969. Neil Armstrong and Buzz Aldrin walked on the lunar surface while Michael Collins orbited above."
+      },
+      {
+        "question": "What was the first artificial satellite launched into space?",
+        "options": ["Explorer 1", "Sputnik 1", "Vanguard 1", "Telstar 1"],
+        "correctAnswer": 1,
+        "explanation": "Sputnik 1, launched by the Soviet Union on October 4, 1957, was the first artificial satellite. Its 'beep-beep-beep' radio signal marked the start of the Space Age."
+      },
+      {
+        "question": "Which spacecraft has traveled the farthest from Earth?",
+        "options": ["Hubble Space Telescope", "Voyager 1", "New Horizons", "Cassini"],
+        "correctAnswer": 1,
+        "explanation": "Voyager 1, launched in 1977, is now the farthest human-made object from Earth. In 2012, it became the first spacecraft to enter interstellar space and continues sending data today!"
+      },
+      {
+        "question": "What is the International Space Station's primary purpose?",
+        "options": ["Weapons testing", "Scientific research in microgravity", "Moon base preparation", "Asteroid mining"],
+        "correctAnswer": 1,
+        "explanation": "The ISS serves as a space laboratory where astronauts conduct experiments in microgravity that can't be done on Earth. Research includes biology, physics, medicine, and technology development."
+      }
+    ]
+  }
+]

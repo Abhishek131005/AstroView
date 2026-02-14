@@ -1,0 +1,155 @@
+[
+  {
+    "id": "beginner-astronomy",
+    "title": "Beginner's Guide to Astronomy",
+    "description": "Start your journey into space exploration with the basics of observing the night sky.",
+    "difficulty": "Beginner",
+    "estimatedTime": "30 minutes",
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Understanding the Night Sky",
+        "type": "content",
+        "content": "The night sky is like a giant dome over your head. As Earth rotates, different stars and constellations appear to move across this dome from east to west. Learning to recognize patterns in the stars is the first step in astronomy.\n\n**Key Concepts:**\n- The celestial sphere: An imaginary sphere surrounding Earth\n- Zenith: The point directly above you\n- Horizon: Where the sky meets the ground\n- Cardinal directions: North, South, East, West\n\n**Your First Observation:**\nTonight, go outside and identify the brightest objects in the sky. The very bright ones that don't twinkle are usually planets! Stars twinkle because their light passes through our turbulent atmosphere.",
+        "completed": false
+      },
+      {
+        "id": "step-2",
+        "title": "Finding the North Star",
+        "type": "content",
+        "content": "Polaris (the North Star) is one of the most important stars to know. It always points north and stays in nearly the same position all night.\n\n**How to Find Polaris:**\n1. Look for the Big Dipper (7 bright stars forming a ladle shape)\n2. Find the two stars at the edge of the Dipper's 'cup'\n3. Draw an imaginary line through these two stars\n4. Follow this line about 5 times the distance between them\n5. You'll reach a moderately bright star - that's Polaris!\n\n**Why It Matters:**\nFor centuries, travelers used Polaris for navigation. It's also at the end of the Little Dipper's handle. Try finding it tonight!",
+        "completed": false
+      },
+      {
+        "id": "step-3",
+        "title": "Quiz: Night Sky Basics",
+        "type": "quiz",
+        "quizId": "basics-101",
+        "completed": false
+      },
+      {
+        "id": "step-4",
+        "title": "Moon Phases Explained",
+        "type": "content",
+        "content": "The Moon doesn't produce its own light - it reflects sunlight. The Moon's phase depends on how much of its sunlit side we can see from Earth.\n\n**The Eight Phases:**\n1. New Moon: Moon between Earth and Sun (invisible)\n2. Waxing Crescent: Thin sliver visible\n3. First Quarter: Right half lit (in Northern Hemisphere)\n4. Waxing Gibbous: More than half lit, growing\n5. Full Moon: Entire face lit\n6. Waning Gibbous: More than half lit, shrinking\n7. Last Quarter: Left half lit\n8. Waning Crescent: Thin sliver visible\n\n**Memory Trick:**\nWaxing means growing (right side lit first), waning means shrinking (left side lit last). One complete cycle takes about 29.5 days.",
+        "completed": false
+      },
+      {
+        "id": "step-5",
+        "title": "Spotting Planets",
+        "type": "content",
+        "content": "Planets are easier to spot than you might think! Unlike stars, planets don't twinkle - they shine with steady light.\n\n**The Naked-Eye Planets:**\n- **Mercury**: Very close to the Sun, visible shortly after sunset or before sunrise\n- **Venus**: The brightest object after the Sun and Moon, appears in evening or morning sky\n- **Mars**: Distinct reddish color, brightness varies with distance\n- **Jupiter**: Very bright, second only to Venus among planets\n- **Saturn**: Yellowish, dimmer than Jupiter but still prominent\n\n**Pro Tip:**\nUse a sky-tracking app to identify which planets are visible tonight and where to look for them!",
+        "completed": false
+      },
+      {
+        "id": "step-6",
+        "title": "Practical Observation",
+        "type": "content",
+        "content": "**Your First Stargazing Session:**\n\n**What You Need:**\n- A clear night (check weather forecast)\n- A location away from bright lights\n- A red flashlight (preserves night vision)\n- A blanket or reclining chair\n- Optional: binoculars or a telescope\n\n**How to Prepare:**\n1. Give your eyes 20-30 minutes to adjust to darkness\n2. Start with the brightest objects and work toward dimmer ones\n3. Look slightly to the side of faint objects (your peripheral vision is more sensitive)\n4. Be patient - the longer you observe, the more you'll see\n\n**Challenge:**\nGo out tonight and try to identify at least 3 constellations and 1 planet!",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "satellite-tracking",
+    "title": "Satellite Tracking Mastery",
+    "description": "Learn how to spot and track satellites, including the International Space Station.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "45 minutes",
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "What Are Satellites?",
+        "type": "content",
+        "content": "Satellites are objects that orbit Earth. There are two types:\n\n**Natural Satellites:**\n- The Moon is Earth's only natural satellite\n\n**Artificial Satellites:**\n- Human-made objects launched into orbit\n- Over 8,000 active satellites currently orbiting Earth\n- Purposes: communication, navigation (GPS), weather, science, military\n\n**How They Stay Up:**\nSatellites stay in orbit because they're moving sideways fast enough that as they fall toward Earth, they keep missing it. They're in constant free-fall, which creates the weightless environment inside.\n\n**Orbital Altitudes:**\n- Low Earth Orbit (LEO): 200-2,000 km (ISS, Starlink)\n- Medium Earth Orbit (MEO): 2,000-35,786 km (GPS)\n- Geostationary Orbit (GEO): 35,786 km (weather, communications)",
+        "completed": false
+      },
+      {
+        "id": "step-2",
+        "title": "Understanding Satellite Passes",
+        "type": "content",
+        "content": "A satellite 'pass' is when a satellite moves across your local sky. Here's what you need to know:\n\n**Key Terms:**\n- **Rise Time:** When the satellite appears above the horizon\n- **Set Time:** When it disappears below the horizon\n- **Maximum Elevation:** Highest point in the sky (measured in degrees, 90° is directly overhead)\n- **Brightness (Magnitude):** How bright it appears (lower numbers = brighter)\n- **Duration:** How long the pass lasts (typically 2-8 minutes)\n\n**Best Viewing Conditions:**\n- Shortly after sunset or before sunrise\n- When the satellite is in sunlight but you're in darkness\n- Clear skies with minimal light pollution\n- Higher elevation passes are easier to spot\n\n**What You'll See:**\nA steady point of light moving smoothly across the sky, like a star in motion. No blinking lights (those are aircraft)!",
+        "completed": false
+      },
+      {
+        "id": "step-3",
+        "title": "The International Space Station",
+        "type": "content",
+        "content": "The ISS is the brightest satellite and easiest to spot!\n\n**ISS Facts:**\n- Size: About as large as a football field\n- Altitude: ~400 km (248 miles)\n- Speed: 28,000 km/h (17,500 mph)\n- Orbit Period: 90 minutes (16 orbits per day)\n- Brightness: Can reach magnitude -4 (brighter than Venus!)\n- Crew: Usually 7 astronauts\n\n**Spotting the ISS:**\n1. Check visibility predictions for your location (use our Tracker page!)\n2. Note the time, direction (compass), and elevation\n3. Go outside a few minutes early\n4. Look in the predicted direction\n5. Watch for a very bright, fast-moving light\n\n**Amazing Fact:**\nWhen you see the ISS overhead, there are humans up there looking down at you! Wave hello to the astronauts!",
+        "completed": false
+      },
+      {
+        "id": "step-4",
+        "title": "Quiz: Orbital Mechanics",
+        "type": "quiz",
+        "quizId": "orbital-mechanics",
+        "completed": false
+      },
+      {
+        "id": "step-5",
+        "title": "Tracking Satellites with AstroView",
+        "type": "content",
+        "content": "Our Tracker page makes satellite spotting easy!\n\n**How to Use the Tracker:**\n\n**Step 1: Set Your Location**\n- Allow location access or enter your city\n- Accurate location ensures correct predictions\n\n**Step 2: View ISS Position**\n- See real-time position on the map\n- Watch it orbit Earth every 90 minutes\n- Check current altitude and velocity\n\n**Step 3: Check Pass Predictions**\n- See upcoming visible passes\n- Note start time and direction (e.g., \"WSW\" = west-southwest)\n- Max elevation tells you how high it will appear\n- Duration shows how long you'll see it\n\n**Step 4: What's Overhead**\n- Discover other satellites currently above you\n- Learn about different satellite types\n- Track specific satellites by NORAD ID\n\n**Pro Tip:**\nSet a reminder 10 minutes before a good ISS pass so you don't miss it!",
+        "completed": false
+      },
+      {
+        "id": "step-6",
+        "title": "Satellite Photography Challenge",
+        "type": "content",
+        "content": "Ready to photograph satellites? Here's how:\n\n**Equipment Needed:**\n- Camera with manual mode (or smartphone)\n- Tripod (or stable surface)\n- Remote shutter or timer (to avoid camera shake)\n\n**Camera Settings:**\n- Mode: Manual\n- Shutter Speed: 15-30 seconds\n- ISO: 800-1600\n- Aperture: f/2.8-f/4 (as wide as possible)\n- Focus: Manual, set to infinity\n\n**Technique:**\n1. Set up before the satellite appears\n2. Frame your shot (include landscape for context)\n3. Start exposure as satellite enters frame\n4. Satellite will appear as a streak of light\n5. Experiment with different exposure times\n\n**Challenge:**\nCapture a photo of the ISS passing overhead! Share it with the astronomy community using hashtags like #ISSPhotography or #SatelliteSpotting",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "space-phenomena-observer",
+    "title": "Observing Space Phenomena",
+    "description": "Master the art of viewing eclipses, meteor showers, and other celestial events.",
+    "difficulty": "Intermediate",
+    "estimatedTime": "50 minutes",
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Understanding Eclipses",
+        "type": "content",
+        "content": "Eclipses are nature's most spectacular celestial events!\n\n**Solar Eclipses:**\n- Moon passes between Earth and Sun\n- Types: Total, Partial, Annular\n- **NEVER** look directly at the Sun without proper eclipse glasses\n- Total solar eclipses are rare for any given location (once every 300-400 years on average)\n\n**Lunar Eclipses:**\n- Earth's shadow falls on the Moon\n- Types: Total, Partial, Penumbral\n- Safe to view with naked eyes\n- Moon may turn reddish-orange (\"Blood Moon\") during totality\n\n**Why the Red Color?**\nDuring a total lunar eclipse, Earth's atmosphere bends (refracts) red sunlight onto the Moon. It's like seeing all of Earth's sunrises and sunsets projected onto the Moon at once!",
+        "completed": false
+      },
+      {
+        "id": "step-2",
+        "title": "Meteor Shower Mastery",
+        "type": "content",
+        "content": "Meteor showers are cosmic fireworks shows - and they're free!\n\n**What Causes Them:**\n- Earth passes through debris trails left by comets\n- Tiny particles (usually rice-grain sized) burn up in our atmosphere\n- Creates bright streaks called meteors or \"shooting stars\"\n\n**Major Annual Showers:**\n- **Perseids** (August): 60-100 meteors/hour, reliable and bright\n- **Geminids** (December): 120 meteors/hour, best shower of the year\n- **Quadrantids** (January): 120 meteors/hour, short peak period\n- **Leonids** (November): 15 meteors/hour, occasional storms\n- **Lyrids** (April): 20 meteors/hour, ancient shower\n\n**Radiant Point:**\nAll meteors in a shower appear to originate from one constellation (the radiant). Don't stare at the radiant - meteors are visible across the entire sky!\n\n**Best Viewing Strategy:**\n- Find dark skies away from city lights\n- Give eyes 20-30 minutes to adjust\n- Lie back and look at the whole sky\n- Peak activity is usually after midnight",
+        "completed": false
+      },
+      {
+        "id": "step-3",
+        "title": "Quiz: Space Phenomena",
+        "type": "quiz",
+        "quizId": "space-phenomena",
+        "completed": false
+      },
+      {
+        "id": "step-4",
+        "title": "Aurora Hunting",
+        "type": "content",
+        "content": "The Northern and Southern Lights are on many bucket lists!\n\n**What Are Auroras?**\n- Caused by solar wind particles hitting Earth's magnetic field\n- Particles funnel toward the poles and collide with atmospheric gases\n- Collisions create colorful light displays\n\n**Colors and What They Mean:**\n- **Green** (most common): Oxygen at 100-300 km altitude\n- **Red**: Oxygen at higher altitudes (>300 km)\n- **Blue/Purple**: Nitrogen molecules\n\n**When to See Them:**\n- Higher chance during solar maximum (peak of 11-year solar cycle)\n- After strong solar flares or coronal mass ejections\n- Dark, clear nights away from light pollution\n- Higher latitudes increase chances (>60° latitude)\n\n**Aurora Forecasting:**\n- Monitor the KP index (0-9 scale, higher = stronger)\n- Check space weather alerts on our app\n- KP 5+ can bring auroras to mid-latitudes\n\n**Photography Tips:**\n- Use same settings as for Milky Way photography\n- Faster shutter speeds (2-8 seconds) to capture movement\n- Shoot in RAW format for better post-processing",
+        "completed": false
+      },
+      {
+        "id": "step-5",
+        "title": "Planetary Transits and Conjunctions",
+        "type": "content",
+        "content": "Some celestial events happen slowly but are worth the wait!\n\n**Planetary Transits:**\n- When Mercury or Venus passes in front of the Sun\n- Appears as a tiny black dot moving across the Sun's face\n- **Requires solar telescope or eclipse glasses**\n- Mercury transits: ~13 per century\n- Venus transits: Extremely rare, occur in pairs 8 years apart, then not for over 100 years (next: 2117!)\n\n**Planetary Conjunctions:**\n- When two planets appear very close together in the sky\n- Great Jupiter-Saturn conjunction (December 2020): Closest in 400 years!\n- Best photographed with wide-angle lens\n- Create memorable visual alignments\n\n**Moon Occultations:**\n- Moon passes in front of a star or planet\n- Can watch a planet disappear and reappear\n- Timing can be predicted to the second\n\n**How to Prepare:**\n1. Mark your calendar with upcoming events\n2. Check weather forecasts days in advance\n3. Scout your viewing location beforehand\n4. Set up early to test equipment",
+        "completed": false
+      },
+      {
+        "id": "step-6",
+        "title": "Become a Citizen Scientist",
+        "type": "content",
+        "content": "Turn your observations into valuable scientific data!\n\n**Meteor Counting:**\n- Submit meteor counts to the International Meteor Organization (IMO)\n- Help scientists understand meteor shower activity\n- Record: time, direction, brightness, shower association\n\n**Aurora Reporting:**\n- Report aurora sightings to Aurorasaurus\n- Contributes to space weather research\n- Helps improve aurora forecasting models\n\n**Satellite Tracking:**\n- Report satellite brightness observations\n- Helps track satellites and space debris\n- Contributes to the global space situational awareness network\n\n**Eclipse Science:**\n- Participate in eclipse megamovies\n- Collect temperature and atmospheric data\n- Join global collaboration projects\n\n**Your Impact:**\nProfessional scientists can't be everywhere at once. Your observations from your location help fill in the gaps and contribute to real scientific discoveries!\n\n**Final Challenge:**\nObserve and document at least three different types of phenomena from this course. Share your experiences with the astronomy community!",
+        "completed": false
+      }
+    ]
+  }
+]

@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Filter, SortAsc } from 'lucide-react';
-import { EventCard } from './EventCard';
-import { EmptyState } from '@/components/common/EmptyState';
-import { Skeleton } from '@/components/common/Skeleton';
+import EventCard from './EventCard';
+import EmptyState from '@/components/common/EmptyState';
+import Skeleton from '@/components/common/Skeleton';
 import eventsData from '@/data/events.json';
 
 function EventList() {

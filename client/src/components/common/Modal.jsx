@@ -41,6 +41,7 @@ function Modal({
     sm: 'max-w-md',
     md: 'max-w-2xl',
     lg: 'max-w-4xl',
+    xl: 'max-w-6xl',
     full: 'max-w-7xl',
   };
 
@@ -101,4 +102,4 @@ function Modal({
   return createPortal(modalContent, document.body);
 }
 
-export { Modal };
+export default Modal;

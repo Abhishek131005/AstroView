@@ -54,4 +54,4 @@ function SearchBar({
   );
 }
 
-export { SearchBar };
+export default SearchBar;

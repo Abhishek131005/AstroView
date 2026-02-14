@@ -144,6 +144,7 @@ export const STORAGE_KEYS = {
   QUIZ_SCORES: 'astroview_quiz_scores',
   BADGES: 'astroview_badges',
   COMPLETED_LEARNING_PATHS: 'astroview_completed_paths',
+  LEARNING_PROGRESS: 'astroview_learning_progress',
 };
 
 /**

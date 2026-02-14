@@ -546,118 +546,118 @@
 
 ---
 
-## Phase 9: Learn & Explore (LearnPage)
+## Phase 9: Learn & Explore (LearnPage) ✓
 
 **Priority:** P1 (Should Have)  
 **Time Estimate:** 4 hours  
 **Dependencies:** Phase 2, Phase 3
 
 ### Static Learning Data
-- [ ] Create /client/src/data/glossary.json
-  - [ ] 30-40 terms with: term, pronunciation, definition, category, visualExample
-- [ ] Create /client/src/data/quizzes.json
-  - [ ] 5-7 quizzes with: id, title, description, questions[]
-  - [ ] Each question: question, options[], correctAnswer, explanation
-- [ ] Create /client/src/data/learningPaths.json
-  - [ ] 3-5 paths with: id, title, description, steps[]
-  - [ ] Each step: title, type (content/quiz/external), content/link
+- [x] Create /client/src/data/glossary.json
+  - [x] 30-40 terms with: term, pronunciation, definition, category, visualExample
+- [x] Create /client/src/data/quizzes.json
+  - [x] 5-7 quizzes with: id, title, description, questions[]
+  - [x] Each question: question, options[], correctAnswer, explanation
+- [x] Create /client/src/data/learningPaths.json
+  - [x] 3-5 paths with: id, title, description, steps[]
+  - [x] Each step: title, type (content/quiz/external), content/link
 
 ### Glossary Section
-- [ ] Create GlossaryItem.jsx component
-  - [ ] Term (heading)
-  - [ ] Pronunciation (muted)
-  - [ ] Category badge
-  - [ ] Definition
-  - [ ] Expandable for visual example
-  - [ ] "Explain Simply" toggle
-- [ ] Search bar for glossary
-- [ ] Filter by category (dropdown)
-- [ ] Alphabetical index navigation (A-Z)
-- [ ] Responsive grid
+- [x] Create GlossaryItem.jsx component
+  - [x] Term (heading)
+  - [x] Pronunciation (muted)
+  - [x] Category badge
+  - [x] Definition
+  - [x] Expandable for visual example
+  - [x] "Explain Simply" toggle
+- [x] Search bar for glossary
+- [x] Filter by category (dropdown)
+- [x] Alphabetical index navigation (A-Z)
+- [x] Responsive grid
 
 ### Quiz Section
-- [ ] Create QuizCard.jsx component (quiz selector)
-  - [ ] Quiz title
-  - [ ] Description
-  - [ ] Question count
-  - [ ] High score (from localStorage)
-  - [ ] "Start Quiz" button
-- [ ] Create Quiz.jsx component (active quiz)
-  - [ ] Progress bar (question x of y)
-  - [ ] Question text
-  - [ ] Answer buttons (4 options)
-  - [ ] Immediate feedback (correct/incorrect)
-  - [ ] Explanation after answer
-  - [ ] Next question button
-  - [ ] Score display at end
-  - [ ] Retry button
-  - [ ] Save score to UserContext
-- [ ] Quiz list/grid on LearnPage
-- [ ] Modal for active quiz
+- [x] Create QuizCard.jsx component (quiz selector)
+  - [x] Quiz title
+  - [x] Description
+  - [x] Question count
+  - [x] High score (from localStorage)
+  - [x] "Start Quiz" button
+- [x] Create Quiz.jsx component (active quiz)
+  - [x] Progress bar (question x of y)
+  - [x] Question text
+  - [x] Answer buttons (4 options)
+  - [x] Immediate feedback (correct/incorrect)
+  - [x] Explanation after answer
+  - [x] Next question button
+  - [x] Score display at end
+  - [x] Retry button
+  - [x] Save score to UserContext
+- [x] Quiz list/grid on LearnPage
+- [x] Modal for active quiz
 
 ### Learning Paths Section
-- [ ] Create LearningPath.jsx component
-  - [ ] Path title
-  - [ ] Description
-  - [ ] Progress bar (steps completed / total)
-  - [ ] "Start" or "Continue" button
-- [ ] Create LearningPathDetail.jsx (modal)
-  - [ ] List of steps with completion checkmarks
-  - [ ] Click step to expand content
-  - [ ] Mark step as complete button
-  - [ ] Track progress in UserContext
-  - [ ] Completion badge on finish
+- [x] Create LearningPath.jsx component
+  - [x] Path title
+  - [x] Description
+  - [x] Progress bar (steps completed / total)
+  - [x] "Start" or "Continue" button
+- [x] Create LearningPathDetail.jsx (modal)
+  - [x] List of steps with completion checkmarks
+  - [x] Click step to expand content
+  - [x] Mark step as complete button
+  - [x] Track progress in UserContext
+  - [x] Completion badge on finish
 
 ### Badge System
-- [ ] Create BadgeDisplay.jsx component
-  - [ ] Show earned badges with icons
-  - [ ] Badge types: Quiz Master, Path Completer, Streak badges
-  - [ ] Locked vs. unlocked states
-  - [ ] Tooltips with unlock requirements
-- [ ] Logic to award badges:
-  - [ ] Quiz score 100% = Quiz Master badge
-  - [ ] Complete learning path = Path Completer badge
-  - [ ] Store in UserContext
+- [x] Create BadgeDisplay.jsx component
+  - [x] Show earned badges with icons
+  - [x] Badge types: Quiz Master, Path Completer, Streak badges
+  - [x] Locked vs. unlocked states
+  - [x] Tooltips with unlock requirements
+- [x] Logic to award badges:
+  - [x] Quiz score 100% = Quiz Master badge
+  - [x] Complete learning path = Path Completer badge
+  - [x] Store in UserContext
 
 ### Integration
-- [ ] Assemble LearnPage with tabs or sections
-- [ ] Layout: Glossary, Quizzes, Learning Paths, Badges
-- [ ] Responsive
-- [ ] Animations (flip for badges, confetti on quiz completion)
-- [ ] Test persistence in localStorage
+- [x] Assemble LearnPage with tabs or sections
+- [x] Layout: Glossary, Quizzes, Learning Paths, Badges
+- [x] Responsive
+- [x] Animations (flip for badges, confetti on quiz completion)
+- [x] Test persistence in localStorage
 
 ---
 
-## Phase 10: AI Explain Simply Feature
+## Phase 10: AI Explain Simply Feature ✓
 
 **Priority:** P2 (Nice to Have)  
 **Time Estimate:** 2 hours  
 **Dependencies:** Phase 4 (AI backend)
 
 ### AI Component
-- [ ] Create ExplainSimply.jsx component
-  - [ ] Toggle button with sparkle icon
-  - [ ] Click sends text to AI service
-  - [ ] Display simplified response in modal or expandable section
-  - [ ] Loading spinner (up to 5s)
-  - [ ] Error handling with retry
-  - [ ] Fallback to pre-written simple explanations
+- [x] Create ExplainSimply.jsx component
+  - [x] Toggle button with sparkle icon
+  - [x] Click sends text to AI service
+  - [x] Display simplified response in modal or expandable section
+  - [x] Loading spinner (up to 5s)
+  - [x] Error handling with retry
+  - [x] Fallback to pre-written simple explanations
 
 ### Pre-written Fallbacks
-- [ ] Create /client/src/data/simplifications.json
-- [ ] Add pre-written simple explanations for:
-  - [ ] Common terms (orbit, trajectory, aphelion, etc.)
-  - [ ] Common missions (Artemis, Mars 2020, etc.)
-  - [ ] Use as fallback if AI fails
+- [x] Create /client/src/data/simplifications.json
+- [x] Add pre-written simple explanations for:
+  - [x] Common terms (orbit, trajectory, aphelion, etc.)
+  - [x] Common missions (Artemis, Mars 2020, etc.)
+  - [x] Use as fallback if AI fails
 
 ### Integration
-- [ ] Add ExplainSimply toggle to:
-  - [ ] EventCard (celestial events)
-  - [ ] MissionDetail (mission descriptions)
-  - [ ] GlossaryItem (term definitions)
-  - [ ] ImpactCard (impact stories)
-- [ ] Cache AI responses in backend (test caching works)
-- [ ] Test with Gemini API
+- [x] Add ExplainSimply toggle to:
+  - [x] EventCard (celestial events)
+  - [x] MissionDetail (mission descriptions)
+  - [x] GlossaryItem (term definitions)
+  - [x] ImpactCard (impact stories)
+- [x] Cache AI responses in backend (test caching works)
+- [x] Test with Gemini API
 
 ---
 

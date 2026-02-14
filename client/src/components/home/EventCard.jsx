@@ -9,8 +9,8 @@ import {
   ChevronUp,
   Sparkles 
 } from 'lucide-react';
-import { CountdownTimer } from '@/components/common/CountdownTimer';
-import { Badge } from '@/components/common/Badge';
+import CountdownTimer from '@/components/common/CountdownTimer';
+import Badge from '@/components/common/Badge';
 import { formatDate } from '@/utils/formatters';
 
 const EVENT_TYPE_CONFIG = {
@@ -151,4 +151,4 @@ function EventCard({ event }) {
   );
 }
 
-export { EventCard };
+export default EventCard;
