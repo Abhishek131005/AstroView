@@ -11,16 +11,16 @@ function ImpactPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="space-y-8"
+      className="space-y-6"
     >
       {/* Header */}
-      <div className="flex items-center gap-3">
-        <Globe className="w-8 h-8 text-electric-blue" />
+      <div className="flex items-center gap-2.5">
+        <Globe className="w-7 h-7 text-electric-blue" />
         <div>
-          <h1 className="text-4xl font-bold font-heading text-star-white">
+          <h1 className="text-3xl font-bold font-heading text-star-white">
             Space to Earth
           </h1>
-          <p className="text-muted-gray mt-1">
+          <p className="text-muted-gray text-sm mt-0.5">
             How satellites and space technology impact life on Earth every day
           </p>
         </div>
@@ -28,11 +28,11 @@ function ImpactPage() {
 
       {/* Impact Categories */}
       <section>
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-white mb-2">
+        <div className="mb-4">
+          <h2 className="text-xl font-bold text-white mb-1">
             <span className="gradient-text">Satellite Applications</span>
           </h2>
-          <p className="text-muted-gray">
+          <p className="text-muted-gray text-sm">
             Discover how satellites help us in climate monitoring, agriculture, disaster response, and more
           </p>
         </div>

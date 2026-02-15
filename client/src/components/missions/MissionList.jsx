@@ -83,7 +83,7 @@ function MissionList() {
           {/* Search Bar */}
           <SearchBar
             value={searchQuery}
-            onChange={setSearchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search missions, spacecraft, or keywords..."
           />
 

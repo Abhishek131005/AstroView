@@ -5,6 +5,17 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
+    fontSize: {
+      'xs': '0.7rem',
+      'sm': '0.8125rem',
+      'base': '0.875rem',
+      'lg': '0.9375rem',
+      'xl': '1.0625rem',
+      '2xl': '1.25rem',
+      '3xl': '1.5rem',
+      '4xl': '1.875rem',
+      '5xl': '2.25rem',
+    },
     extend: {
       colors: {
         'bg-primary': '#0B0D17',

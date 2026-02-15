@@ -34,12 +34,12 @@ function TrackerPage() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="space-y-6 pb-10"
+      className="space-y-5 pb-8"
     >
-      <div className="flex items-center gap-3">
-        <Satellite className="w-8 h-8 text-cyan-400" />
+      <div className="flex items-center gap-2.5">
+        <Satellite className="w-7 h-7 text-cyan-400" />
         <div>
-          <h1 className="text-4xl font-black text-white uppercase tracking-tighter">
+          <h1 className="text-3xl font-black text-white uppercase tracking-tighter">
             Live Sky Tracker
           </h1>
           <p className="text-slate-400 text-sm">
@@ -48,11 +48,11 @@ function TrackerPage() {
         </div>
       </div>
 
-      <section className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-950">
+      <section className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-950">
         <ISSMap userLocation={location} />
       </section>
 
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-1">
           <SatelliteInfo />
         </div>

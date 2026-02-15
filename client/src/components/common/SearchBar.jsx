@@ -22,8 +22,8 @@ function SearchBar({
   return (
     <div className={`relative ${className}`}>
       {/* Search Icon */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
-        <Search className={`w-5 h-5 transition-colors duration-200 ${
+      <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+        <Search className={`w-4 h-4 transition-colors duration-200 ${
           isFocused ? 'text-electric-blue' : 'text-muted-gray'
         }`} />
       </div>
@@ -36,7 +36,7 @@ function SearchBar({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
-        className={`w-full bg-bg-tertiary border border-white/10 text-star-white pl-12 pr-12 py-3 rounded-lg transition-all duration-200 placeholder:text-faint-gray focus:border-electric-blue/50 focus:ring-2 focus:ring-electric-blue/20 focus:outline-none`}
+        className={`w-full bg-bg-tertiary border border-white/10 text-star-white pl-10 pr-10 py-2 rounded-lg transition-all duration-200 placeholder:text-faint-gray focus:border-electric-blue/50 focus:ring-2 focus:ring-electric-blue/20 focus:outline-none`}
         {...props}
       />
 
@@ -44,10 +44,10 @@ function SearchBar({
       {value && (
         <button
           onClick={handleClear}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-lg text-muted-gray hover:text-star-white hover:bg-bg-secondary transition-colors duration-200"
+          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-muted-gray hover:text-star-white hover:bg-bg-secondary transition-colors duration-200"
           aria-label="Clear search"
         >
-          <X className="w-4 h-4" />
+          <X className="w-3.5 h-3.5" />
         </button>
       )}
     </div>

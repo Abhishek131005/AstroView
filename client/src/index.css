@@ -90,27 +90,27 @@
 /* Component Styles */
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-br from-electric-blue to-cosmic-purple text-white px-6 py-3 rounded-lg font-semibold transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(79,156,247,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
+    @apply bg-gradient-to-br from-electric-blue to-cosmic-purple text-white px-4 py-2 rounded-lg font-semibold transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(79,156,247,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
   }
 
   .btn-secondary {
-    @apply bg-bg-secondary border border-white/10 text-star-white px-6 py-3 rounded-lg font-semibold transition-all duration-150 hover:border-electric-blue/30 hover:bg-bg-tertiary disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-bg-secondary border border-white/10 text-star-white px-4 py-2 rounded-lg font-semibold transition-all duration-150 hover:border-electric-blue/30 hover:bg-bg-tertiary disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-ghost {
-    @apply text-star-white px-4 py-2 rounded-lg transition-all duration-150 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply text-star-white px-3 py-1.5 rounded-lg transition-all duration-150 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .card {
-    @apply bg-bg-secondary border border-white/10 rounded-2xl p-6 card-glow-hover;
-  }
-
-  .card-compact {
     @apply bg-bg-secondary border border-white/10 rounded-xl p-4 card-glow-hover;
   }
 
+  .card-compact {
+    @apply bg-bg-secondary border border-white/10 rounded-lg p-3 card-glow-hover;
+  }
+
   .badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide;
   }
 
   .badge-success {
@@ -130,7 +130,7 @@
   }
 
   .input {
-    @apply w-full bg-bg-tertiary border border-white/10 text-star-white px-4 py-3 rounded-lg transition-all duration-150 placeholder:text-faint-gray focus:border-electric-blue/50 focus:ring-2 focus:ring-electric-blue/20;
+    @apply w-full bg-bg-tertiary border border-white/10 text-star-white px-3 py-2 rounded-lg transition-all duration-150 placeholder:text-faint-gray focus:border-electric-blue/50 focus:ring-2 focus:ring-electric-blue/20;
   }
 
   .skeleton {

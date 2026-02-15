@@ -8,16 +8,16 @@ function MissionsPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="space-y-8"
+      className="space-y-6"
     >
       {/* Header */}
-      <div className="flex items-center gap-3">
-        <Rocket className="w-8 h-8 text-electric-blue" />
+      <div className="flex items-center gap-2.5">
+        <Rocket className="w-7 h-7 text-electric-blue" />
         <div>
-          <h1 className="text-4xl font-bold font-heading text-star-white">
+          <h1 className="text-3xl font-bold font-heading text-star-white">
             Mission Control
           </h1>
-          <p className="text-muted-gray mt-1">
+          <p className="text-muted-gray text-sm mt-0.5">
             Explore current and upcoming space missions from around the world
           </p>
         </div>

@@ -132,16 +132,16 @@ function LearnPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="space-y-8"
+      className="space-y-6"
     >
       {/* Header */}
-      <div className="flex items-center gap-3">
-        <GraduationCap className="w-8 h-8 text-electric-blue" />
+      <div className="flex items-center gap-2.5">
+        <GraduationCap className="w-7 h-7 text-electric-blue" />
         <div>
-          <h1 className="text-4xl font-bold font-heading text-white">
+          <h1 className="text-3xl font-bold font-heading text-white">
             Learn & Explore
           </h1>
-          <p className="text-gray-400 mt-1">
+          <p className="text-gray-400 text-sm mt-0.5">
             Expand your knowledge of space and astronomy
           </p>
         </div>
@@ -155,7 +155,7 @@ function LearnPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-3 border-b-2 transition-colors whitespace-nowrap ${
+              className={`flex items-center gap-2 px-3 py-2 border-b-2 transition-colors whitespace-nowrap text-sm ${
                 activeTab === tab.id
                   ? 'border-electric-blue text-white'
                   : 'border-transparent text-gray-400 hover:text-white'
@@ -177,7 +177,7 @@ function LearnPage() {
               <SearchBar
                 placeholder="Search terms or definitions..."
                 value={searchTerm}
-                onChange={setSearchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <div className="relative">
@@ -215,7 +215,7 @@ function LearnPage() {
 
               return (
                 <div key={letter} id={`glossary-${letter}`}>
-                  <h2 className="text-2xl font-bold text-white mb-4 sticky top-0 bg-bg-primary/95 backdrop-blur py-2 z-10">
+                  <h2 className="text-xl font-bold text-white mb-3 sticky top-0 bg-bg-primary/95 backdrop-blur py-1.5 z-10">
                     {letter}
                   </h2>
                   <div className="grid gap-4">
@@ -271,9 +271,9 @@ function LearnPage() {
       {/* Badges Tab */}
       {activeTab === 'badges' && (
         <div className="space-y-6">
-          <div className="bg-bg-secondary/50 border border-white/10 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-white mb-2">Your Achievements</h2>
-            <p className="text-muted-gray mb-6">
+          <div className="bg-bg-secondary/50 border border-white/10 rounded-lg p-4">
+            <h2 className="text-xl font-bold text-white mb-1.5">Your Achievements</h2>
+            <p className="text-muted-gray mb-4 text-sm">
               Earn badges by completing quizzes and learning paths. Show off your space knowledge!
             </p>
             <div className="flex items-center gap-4 text-sm">

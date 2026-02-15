@@ -61,7 +61,7 @@ function Modal({
           {/* Modal */}
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
             <motion.div
-              className={`relative w-full ${sizes[size]} bg-bg-secondary border border-white/10 rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden`}
+              className={`relative w-full ${sizes[size]} bg-bg-secondary border border-white/10 rounded-xl shadow-2xl max-h-[90vh] overflow-hidden`}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -70,26 +70,26 @@ function Modal({
             >
               {/* Header */}
               {(title || showCloseButton) && (
-                <div className="flex items-center justify-between p-6 border-b border-white/10">
+                <div className="flex items-center justify-between p-4 border-b border-white/10">
                   {title && (
-                    <h2 className="text-2xl font-bold font-heading text-star-white">
+                    <h2 className="text-xl font-bold font-heading text-star-white">
                       {title}
                     </h2>
                   )}
                   {showCloseButton && (
                     <button
                       onClick={onClose}
-                      className="p-2 rounded-lg text-muted-gray hover:text-star-white hover:bg-bg-tertiary transition-colors duration-200 ml-auto"
+                      className="p-1.5 rounded-lg text-muted-gray hover:text-star-white hover:bg-bg-tertiary transition-colors duration-200 ml-auto"
                       aria-label="Close modal"
                     >
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4" />
                     </button>
                   )}
                 </div>
               )}
 
               {/* Content */}
-              <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
+              <div className="p-4 overflow-y-auto max-h-[calc(90vh-72px)]">
                 {children}
               </div>
             </motion.div>

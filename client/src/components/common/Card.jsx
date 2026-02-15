@@ -8,13 +8,13 @@ function Card({
   onClick,
   ...props 
 }) {
-  const baseStyles = 'bg-bg-secondary border border-white/10 rounded-2xl p-6';
+  const baseStyles = 'bg-bg-secondary border border-white/10 rounded-xl p-4';
   
   const variants = {
     default: hoverable 
       ? 'hover:border-electric-blue/30 hover:shadow-[0_0_20px_rgba(79,156,247,0.1)] transition-all duration-200'
       : '',
-    compact: 'p-4 rounded-xl',
+    compact: 'p-3 rounded-lg',
     glass: 'bg-white/5 backdrop-blur-md',
   };
 

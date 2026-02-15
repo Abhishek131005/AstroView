@@ -202,7 +202,7 @@ END:VEVENT
   };
 
   return (
-    <div className="min-h-screen bg-bg-primary py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-bg-primary py-6 px-3 sm:px-4 lg:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -210,20 +210,20 @@ END:VEVENT
         className="max-w-6xl mx-auto"
       >
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <CalendarIcon className="w-8 h-8 text-electric-blue" />
-            <h1 className="text-4xl font-bold font-heading text-star-white">
+        <div className="mb-6">
+          <div className="flex items-center gap-2.5 mb-1.5">
+            <CalendarIcon className="w-7 h-7 text-electric-blue" />
+            <h1 className="text-3xl font-bold font-heading text-star-white">
               Celestial Calendar
             </h1>
           </div>
-          <p className="text-muted-gray text-lg">
+          <p className="text-muted-gray text-sm">
             Plan your stargazing sessions with upcoming celestial events
           </p>
         </div>
 
         {/* Calendar Controls */}
-        <Card className="mb-6">
+        <Card className="mb-5">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <Button variant="ghost" onClick={prevMonth}>

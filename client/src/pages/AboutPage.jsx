@@ -8,16 +8,16 @@ function AboutPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="space-y-8 max-w-4xl"
+      className="space-y-6 max-w-4xl"
     >
       {/* Header */}
-      <div className="flex items-center gap-3">
-        <Info className="w-8 h-8 text-electric-blue" />
+      <div className="flex items-center gap-2.5">
+        <Info className="w-7 h-7 text-electric-blue" />
         <div>
-          <h1 className="text-4xl font-bold font-heading text-star-white">
+          <h1 className="text-3xl font-bold font-heading text-star-white">
             About AstroView
           </h1>
-          <p className="text-muted-gray mt-1">
+          <p className="text-muted-gray text-sm mt-0.5">
             Making space data accessible to everyone
           </p>
         </div>
@@ -25,10 +25,10 @@ function AboutPage() {
 
       {/* Mission */}
       <Card>
-        <h2 className="text-2xl font-bold font-heading text-star-white mb-3">
+        <h2 className="text-xl font-bold font-heading text-star-white mb-2">
           Our Mission
         </h2>
-        <p className="text-muted-gray leading-relaxed">
+        <p className="text-muted-gray leading-relaxed text-sm">
           AstroView transforms complex space data into meaningful, accessible insights for everyday users. 
           We believe everyone should be able to explore and understand what's happening in space, 
           regardless of their scientific background.
@@ -37,10 +37,10 @@ function AboutPage() {
 
       {/* Features */}
       <Card>
-        <h2 className="text-2xl font-bold font-heading text-star-white mb-4">
+        <h2 className="text-xl font-bold font-heading text-star-white mb-3">
           What We Offer
         </h2>
-        <ul className="space-y-3 text-muted-gray">
+        <ul className="space-y-2 text-muted-gray text-sm">
           <li className="flex items-start gap-2">
             <span className="text-electric-blue mt-1">•</span>
             <span>Real-time satellite tracking and ISS location</span>
