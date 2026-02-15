@@ -1,21 +1,27 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
-import { Filter, SortAsc } from 'lucide-react';
-import EventCard from './EventCard';
-import EmptyState from '@/components/common/EmptyState';
-import Skeleton from '@/components/common/Skeleton';
-import eventsData from '@/data/events.json';
+import { Filter, SortAsc, AlertCircle, MapPin } from 'lucide-react';
+import { EventCard } from './EventCard';
+import { EmptyState } from '@/components/common/EmptyState';
+import { Skeleton } from '@/components/common/Skeleton';
+import { LocationContext } from '@/context/LocationContext';
+import { getUpcomingCelestialEvents } from '@/services/eventService';
 
 function EventList() {
+  const { location } = useContext(LocationContext);
   const [selectedType, setSelectedType] = useState('all');
   const [sortBy, setSortBy] = useState('date');
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [events, setEvents] = useState([]);
+  const [error, setError] = useState(null);
 
   const eventTypes = [
     { value: 'all', label: 'All Events' },
     { value: 'satellite', label: 'Satellites' },
     { value: 'planet', label: 'Planets' },
     { value: 'moon', label: 'Moon' },
+    { value: 'solar', label: 'Solar' },
+    { value: 'aurora', label: 'Aurora' },
     { value: 'deep-sky', label: 'Deep Sky' }
   ];
 
@@ -25,8 +31,34 @@ function EventList() {
     { value: 'type', label: 'Type' }
   ];
 
+  // Fetch events when component mounts or location changes
+  useEffect(() => {
+    const fetchEvents = async () => {
+      if (!location.lat || !location.lon) {
+        setIsLoading(false);
+        return;
+      }
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const celestialEvents = await getUpcomingCelestialEvents(location.lat, location.lon, 7);
+        setEvents(celestialEvents);
+      } catch (err) {
+        console.error('Error fetching celestial events:', err);
+        setError('Failed to load events. Please try again later.');
+        setEvents([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, [location.lat, location.lon]);
+
   const filteredAndSortedEvents = useMemo(() => {
-    let filtered = eventsData;
+    let filtered = events;
 
     // Filter by type
     if (selectedType !== 'all') {
@@ -50,7 +82,7 @@ function EventList() {
     });
 
     return sorted;
-  }, [selectedType, sortBy]);
+  }, [events, selectedType, sortBy]);
 
   if (isLoading) {
     return (
@@ -59,6 +91,26 @@ function EventList() {
           <Skeleton key={i} variant="card" />
         ))}
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <EmptyState
+        icon={AlertCircle}
+        message="Failed to load events"
+        description={error}
+      />
+    );
+  }
+
+  if (!location.lat || !location.lon) {
+    return (
+      <EmptyState
+        icon={MapPin}
+        message="Location required"
+        description="Please set your location to see personalized celestial events for your area."
+      />
     );
   }
 
@@ -106,7 +158,7 @@ function EventList() {
       {/* Events Grid */}
       {filteredAndSortedEvents.length === 0 ? (
         <EmptyState
-          icon="filter"
+          icon={Filter}
           message="No events found"
           description="Try adjusting your filters to see more results."
         />

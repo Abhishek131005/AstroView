@@ -50,18 +50,21 @@ api.interceptors.response.use(
       // Server responded with error status
       const { status, data } = error.response;
       
-      console.error(`❌ API Error ${status}:`, data?.message || data);
-      
       // Handle specific status codes
       if (status === 401) {
         // Unauthorized - could redirect to login
         console.error('Unauthorized access');
       } else if (status === 429) {
-        // Rate limit exceeded
-        console.error('Rate limit exceeded');
+        // Rate limit exceeded - suppress logging as it's handled gracefully
+        if (import.meta.env.DEV) {
+          console.warn('⚠️ Rate limit hit for:', error.config?.url);
+        }
       } else if (status === 503) {
         // Service unavailable
         console.error('Service temporarily unavailable');
+      } else {
+        // Log other error statuses
+        console.error(`❌ API Error ${status}:`, data?.message || data);
       }
     } else if (error.request) {
       // Request made but no response

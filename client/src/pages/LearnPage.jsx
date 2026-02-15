@@ -8,8 +8,8 @@ import Quiz from '../components/learn/Quiz';
 import LearningPathCard from '../components/learn/LearningPathCard';
 import LearningPathDetail from '../components/learn/LearningPathDetail';
 import BadgeDisplay from '../components/learn/BadgeDisplay';
-import SearchBar from '../components/common/SearchBar';
-import Modal from '../components/common/Modal';
+import { SearchBar } from '../components/common/SearchBar';
+import { Modal } from '../components/common/Modal';
 import { simplifyText } from '../services/aiService';
 
 // Import data
@@ -184,13 +184,13 @@ function LearnPage() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="appearance-none bg-dark-800 border border-electric-blue/30 rounded-lg px-4 py-2 pr-10 text-white focus:outline-none focus:border-electric-blue"
+                className="appearance-none bg-bg-secondary border border-electric-blue/30 rounded-lg px-4 py-2 pr-10 text-white focus:outline-none focus:border-electric-blue"
               >
                 {categories.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
               </select>
-              <Filter className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <Filter className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-gray pointer-events-none" />
             </div>
           </div>
 
@@ -200,7 +200,7 @@ function LearnPage() {
               <button
                 key={letter}
                 onClick={() => scrollToLetter(letter)}
-                className="w-8 h-8 bg-dark-800/50 border border-electric-blue/20 rounded-lg hover:border-electric-blue hover:bg-dark-800 text-sm font-semibold text-white transition-all"
+                className="w-8 h-8 bg-bg-secondary/50 border border-electric-blue/20 rounded-lg hover:border-electric-blue hover:bg-bg-secondary text-sm font-semibold text-white transition-all"
               >
                 {letter}
               </button>
@@ -215,7 +215,7 @@ function LearnPage() {
 
               return (
                 <div key={letter} id={`glossary-${letter}`}>
-                  <h2 className="text-2xl font-bold text-white mb-4 sticky top-0 bg-dark-900/95 backdrop-blur py-2 z-10">
+                  <h2 className="text-2xl font-bold text-white mb-4 sticky top-0 bg-bg-primary/95 backdrop-blur py-2 z-10">
                     {letter}
                   </h2>
                   <div className="grid gap-4">
@@ -233,7 +233,7 @@ function LearnPage() {
           </div>
 
           {filteredGlossary.length === 0 && (
-            <div className="text-center py-12 text-gray-400">
+            <div className="text-center py-12 text-muted-gray">
               No glossary items found matching your search.
             </div>
           )}
@@ -271,9 +271,9 @@ function LearnPage() {
       {/* Badges Tab */}
       {activeTab === 'badges' && (
         <div className="space-y-6">
-          <div className="bg-dark-800/50 border border-electric-blue/20 rounded-lg p-6">
+          <div className="bg-bg-secondary/50 border border-white/10 rounded-lg p-6">
             <h2 className="text-2xl font-bold text-white mb-2">Your Achievements</h2>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-gray mb-6">
               Earn badges by completing quizzes and learning paths. Show off your space knowledge!
             </p>
             <div className="flex items-center gap-4 text-sm">

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Globe, Leaf, AlertTriangle, Navigation, Radio } from 'lucide-react';
 import ImpactCard from './ImpactCard';
-import Badge from '@/components/common/Badge';
+import { Badge } from '@/components/common/Badge';
 
 const ICON_MAP = {
   'earth': Globe,

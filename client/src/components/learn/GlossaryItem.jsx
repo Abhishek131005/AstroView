@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
-import Badge from '../common/Badge';
-import Button from '../common/Button';
+import { Badge } from '../common/Badge';
+import { Button } from '../common/Button';
 
 export default function GlossaryItem({ item, onExplainSimply }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,6 +15,7 @@ export default function GlossaryItem({ item, onExplainSimply }) {
       setSimplifiedText(result);
     } catch (error) {
       console.error('Failed to simplify:', error);
+      setSimplifiedText('Failed to generate simplified explanation.');
     } finally {
       setIsSimplifying(false);
     }

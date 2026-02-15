@@ -37,4 +37,4 @@ function Skeleton({
   );
 }
 
-export default Skeleton;
+export { Skeleton };

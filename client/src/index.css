@@ -153,4 +153,24 @@
       transition-duration: 0.01ms !important;
     }
   }
+
+  /* Image lazy loading optimization */
+  img[loading="lazy"] {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  img[loading="lazy"].loaded {
+    @apply opacity-100;
+  }
+
+  /* Skip to content (accessibility) */
+  .skip-to-content {
+    @apply absolute -top-full left-0 bg-electric-blue text-white px-4 py-2 rounded z-50 focus:top-4 focus:left-4 transition-all;
+  }
+
+  /* Touch target minimum size (44x44px) */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px] flex items-center justify-center;
+  }
 }
+

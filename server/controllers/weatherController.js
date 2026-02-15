@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { asyncHandler } from '../middleware/errorHandler.js';
 
-const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
 const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5';
+
+// Helper function to get API key (reads fresh each time)
+const getApiKey = () => process.env.OPENWEATHER_API_KEY;
 
 /**
  * Get sky conditions for stargazing
@@ -11,7 +13,7 @@ const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5';
 export const getSkyConditions = asyncHandler(async (req, res) => {
   const { lat, lon, days } = req.query;
   
-  if (!OPENWEATHER_API_KEY) {
+  if (!getApiKey()) {
     return res.json({
       cloudCover: Math.floor(Math.random() * 100),
       visibility: 10000,
@@ -30,7 +32,7 @@ export const getSkyConditions = asyncHandler(async (req, res) => {
       params: {
         lat,
         lon,
-        appid: OPENWEATHER_API_KEY,
+        appid: getApiKey(),
         units: 'metric',
         cnt: days * 8, // 3-hour intervals
       },
@@ -69,7 +71,7 @@ export const getSkyConditions = asyncHandler(async (req, res) => {
     params: {
       lat,
       lon,
-      appid: OPENWEATHER_API_KEY,
+      appid: getApiKey(),
       units: 'metric',
     },
   });

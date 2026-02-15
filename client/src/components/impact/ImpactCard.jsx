@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Satellite, Sparkles, CheckCircle } from 'lucide-react';
-import Badge from '@/components/common/Badge';
+import { Satellite, Sparkles, CheckCircle, Loader2 } from 'lucide-react';
+import { Badge } from '@/components/common/Badge';
+import { simplifyText } from '@/services/aiService';
 
 function ImpactCard({ story, categoryColor }) {
   const [showSimple, setShowSimple] = useState(false);
+  const [simplifiedText, setSimplifiedText] = useState('');
+  const [isSimplifying, setIsSimplifying] = useState(false);
 
   return (
     <motion.div
@@ -46,10 +49,23 @@ function ImpactCard({ story, categoryColor }) {
 
       {/* Explain Simply Toggle */}
       <button
-        onClick={() => setShowSimple(!showSimple)}
+        onClick={async () => {
+          setShowSimple(!showSimple);
+          if (!simplifiedText && !showSimple) {
+            setIsSimplifying(true);
+            try {
+              const result = await simplifyText(story.description, `satellite impact story: ${story.title}`);
+              setSimplifiedText(typeof result === 'object' ? result.simplified : result);
+            } catch (error) {
+              setSimplifiedText('AI service unavailable. Using original text.');
+            } finally {
+              setIsSimplifying(false);
+            }
+          }
+        }}
         className="text-sm text-electric-blue hover:text-electric-blue/80 transition-colors flex items-center gap-1"
       >
-        <Sparkles className="w-4 h-4" />
+        <Sparkles className={`w-4 h-4 ${isSimplifying ? 'animate-pulse' : ''}`} />
         {showSimple ? 'Show Original' : 'Explain Simply'}
       </button>
 
@@ -57,11 +73,19 @@ function ImpactCard({ story, categoryColor }) {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="mt-3 p-3 bg-white/5 rounded-lg border border-white/5"
+          className="mt-3 p-4 bg-electric-blue/10 rounded-lg border border-electric-blue/20"
         >
-          <p className="text-sm text-gray-300">
-            Simplified explanation feature coming soon! This will use AI to make the description even easier to understand.
-          </p>
+          {isSimplifying ? (
+            <div className="flex items-center gap-2">
+              <Loader2 className="w-4 h-4 animate-spin text-electric-blue" />
+              <span className="text-sm text-electric-blue">Simplifying with AI...</span>
+            </div>
+          ) : (
+            <div>
+              <p className="text-xs text-electric-blue font-semibold mb-1 uppercase tracking-wide">AI Simplified</p>
+              <p className="text-sm text-gray-200 italic">"{simplifiedText}"</p>
+            </div>
+          )}
         </motion.div>
       )}
     </motion.div>

@@ -4,9 +4,14 @@ function EmptyState({
   icon: Icon, 
   title, 
   message, 
+  description, // Alias for message or additional detail text
   action,
   className = '',
 }) {
+  // Use description as message if message is not provided
+  const displayMessage = message || description;
+  const displayDescription = message && description ? description : null;
+
   return (
     <motion.div
       className={`flex flex-col items-center justify-center text-center p-8 ${className}`}
@@ -29,9 +34,16 @@ function EmptyState({
       )}
 
       {/* Message */}
-      {message && (
-        <p className="text-muted-gray max-w-md mb-6">
-          {message}
+      {displayMessage && (
+        <p className="text-star-white font-medium mb-2">
+          {displayMessage}
+        </p>
+      )}
+
+      {/* Description (additional detail) */}
+      {displayDescription && (
+        <p className="text-muted-gray max-w-md mb-6 text-sm">
+          {displayDescription}
         </p>
       )}
 
@@ -41,4 +53,4 @@ function EmptyState({
   );
 }
 
-export default EmptyState;
+export { EmptyState };

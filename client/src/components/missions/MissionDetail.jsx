@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Rocket, Target, CheckCircle, Circle, Image as ImageIcon, Users, Sparkles } from 'lucide-react';
-import Badge from '@/components/common/Badge';
+import { X, Calendar, Rocket, Target, CheckCircle, Circle, Image as ImageIcon, Users, Sparkles, Loader2 } from 'lucide-react';
+import { Badge } from '@/components/common/Badge';
 import { formatDate } from '@/utils/formatters';
+import { simplifyText } from '@/services/aiService';
 
 const STATUS_VARIANTS = {
   'active': 'active',
@@ -13,6 +14,8 @@ const STATUS_VARIANTS = {
 function MissionDetail({ mission, onClose }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [showSimple, setShowSimple] = useState(false);
+  const [simplifiedText, setSimplifiedText] = useState('');
+  const [isSimplifying, setIsSimplifying] = useState(false);
 
   if (!mission) return null;
 
@@ -92,19 +95,44 @@ function MissionDetail({ mission, onClose }) {
                   
                   {/* Explain Simply Toggle */}
                   <button
-                    onClick={() => setShowSimple(!showSimple)}
+                    onClick={async () => {
+                      setShowSimple(!showSimple);
+                      if (!simplifiedText && !showSimple) {
+                        setIsSimplifying(true);
+                        try {
+                          const result = await simplifyText(mission.description, `space mission: ${mission.name}`);
+                          setSimplifiedText(typeof result === 'object' ? result.simplified : result);
+                        } catch (error) {
+                          setSimplifiedText('AI service unavailable. Using original text.');
+                        } finally {
+                          setIsSimplifying(false);
+                        }
+                      }
+                    }}
                     className="mt-2 text-sm text-electric-blue hover:text-electric-blue/80 transition-colors flex items-center gap-1"
                   >
-                    <Sparkles className="w-4 h-4" />
+                    <Sparkles className={`w-4 h-4 ${isSimplifying ? 'animate-pulse' : ''}`} />
                     {showSimple ? 'Show Original' : 'Explain Simply'}
                   </button>
 
                   {showSimple && (
-                    <div className="mt-3 p-3 bg-white/5 rounded-lg border border-white/5">
-                      <p className="text-sm text-gray-300">
-                        Simplified explanation coming soon via AI service!
-                      </p>
-                    </div>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      className="mt-3 p-4 bg-electric-blue/10 rounded-lg border border-electric-blue/20"
+                    >
+                      {isSimplifying ? (
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="w-4 h-4 animate-spin text-electric-blue" />
+                          <span className="text-sm text-electric-blue">Simplifying with AI...</span>
+                        </div>
+                      ) : (
+                        <div>
+                          <p className="text-xs text-electric-blue font-semibold mb-1 uppercase tracking-wide">AI Simplified</p>
+                          <p className="text-sm text-gray-200 italic">"{simplifiedText}"</p>
+                        </div>
+                      )}
+                    </motion.div>
                   )}
                 </div>
 

@@ -17,14 +17,14 @@ router.get('/apod', cacheMiddleware(86400), getAPOD);
 // Near Earth Objects - Cache for 6 hours
 router.get('/neo', cacheMiddleware(21600), getNearEarthObjects);
 
-// Solar Flares - Cache for 30 minutes
-router.get('/solar-flares', cacheMiddleware(1800), getSolarFlares);
+// Solar Flares - Cache for 2 hours (increased from 30 min)
+router.get('/solar-flares', cacheMiddleware(7200), getSolarFlares);
 
-// Geomagnetic Storms - Cache for 30 minutes
-router.get('/geomagnetic-storms', cacheMiddleware(1800), getGeomagneticStorms);
+// Geomagnetic Storms - Cache for 2 hours (increased from 30 min)
+router.get('/geomagnetic-storms', cacheMiddleware(7200), getGeomagneticStorms);
 
-// Coronal Mass Ejections - Cache for 30 minutes
-router.get('/cme', cacheMiddleware(1800), getCME);
+// Coronal Mass Ejections - Cache for 2 hours (increased from 30 min)
+router.get('/cme', cacheMiddleware(7200), getCME);
 
 // EONET Events - Cache for 1 hour
 router.get('/eonet', cacheMiddleware(3600), getEONETEvents);

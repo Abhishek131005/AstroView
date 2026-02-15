@@ -51,7 +51,7 @@ function Modal({
         <>
           {/* Overlay */}
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -59,7 +59,7 @@ function Modal({
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
             <motion.div
               className={`relative w-full ${sizes[size]} bg-bg-secondary border border-white/10 rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden`}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -102,4 +102,4 @@ function Modal({
   return createPortal(modalContent, document.body);
 }
 
-export default Modal;
+export { Modal };

@@ -12,21 +12,9 @@ const navItems = [
 
 function Sidebar() {
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-bg-secondary border-r border-white/10 flex flex-col">
-      {/* Logo/Brand */}
-      <div className="p-6 border-b border-white/10">
-        <NavLink to="/" className="block">
-          <h1 className="text-2xl font-bold font-heading gradient-text">
-            AstroView
-          </h1>
-          <p className="text-xs text-muted-gray mt-1">
-            Space Data Insights
-          </p>
-        </NavLink>
-      </div>
-
+    <aside className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-bg-secondary border-r border-white/10 flex flex-col">
       {/* Navigation */}
-      <nav className="flex-1 p-4 overflow-y-auto">
+      <nav className="flex-1 p-4 pt-6 overflow-y-auto">
         <ul className="space-y-2">
           {navItems.map((item) => (
             <li key={item.path}>

@@ -7,11 +7,13 @@ import {
   Eye, 
   ChevronDown, 
   ChevronUp,
-  Sparkles 
+  Sparkles,
+  Loader2
 } from 'lucide-react';
-import CountdownTimer from '@/components/common/CountdownTimer';
-import Badge from '@/components/common/Badge';
+import { CountdownTimer } from '@/components/common/CountdownTimer';
+import { Badge } from '@/components/common/Badge';
 import { formatDate } from '@/utils/formatters';
+import { simplifyText } from '@/services/aiService';
 
 const EVENT_TYPE_CONFIG = {
   satellite: {
@@ -43,6 +45,8 @@ const EVENT_TYPE_CONFIG = {
 function EventCard({ event }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showSimple, setShowSimple] = useState(false);
+  const [simplifiedText, setSimplifiedText] = useState('');
+  const [isSimplifying, setIsSimplifying] = useState(false);
 
   const config = EVENT_TYPE_CONFIG[event.type] || EVENT_TYPE_CONFIG['planet'];
   const Icon = config.icon;
@@ -129,18 +133,51 @@ function EventCard({ event }) {
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-3 p-3 bg-white/5 rounded-lg border border-white/5"
                 >
-                  <p className="text-sm text-gray-300 leading-relaxed">
+                  <p className="text-sm text-gray-300 leading-relaxed mb-2">
                     {event.viewingInstructions}
                   </p>
                   
-                  {/* Explain Simply Toggle (placeholder) */}
+                  {/* Explain Simply Toggle */}
                   <button
-                    onClick={() => setShowSimple(!showSimple)}
-                    className="mt-2 text-xs text-muted-gray hover:text-white transition-colors flex items-center gap-1"
+                    onClick={async () => {
+                      setShowSimple(!showSimple);
+                      if (!simplifiedText && !showSimple) {
+                        setIsSimplifying(true);
+                        try {
+                          const result = await simplifyText(event.viewingInstructions, `viewing instructions: ${event.name}`);
+                          setSimplifiedText(typeof result === 'object' ? result.simplified : result);
+                        } catch (error) {
+                          setSimplifiedText('AI service unavailable. Using original text.');
+                        } finally {
+                          setIsSimplifying(false);
+                        }
+                      }
+                    }}
+                    className="text-xs text-electric-blue hover:text-electric-blue/80 transition-colors flex items-center gap-1"
                   >
-                    <Sparkles className="w-3 h-3" />
+                    <Sparkles className={`w-3 h-3 ${isSimplifying ? 'animate-pulse' : ''}`} />
                     {showSimple ? 'Show Original' : 'Explain Simply'}
                   </button>
+
+                  {showSimple && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      className="mt-2 p-3 bg-electric-blue/10 rounded-lg border border-electric-blue/20"
+                    >
+                      {isSimplifying ? (
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="w-3 h-3 animate-spin text-electric-blue" />
+                          <span className="text-xs text-electric-blue">Simplifying with AI...</span>
+                        </div>
+                      ) : (
+                        <div>
+                          <p className="text-xs text-electric-blue font-semibold mb-1 uppercase tracking-wide">AI Simplified</p>
+                          <p className="text-xs text-gray-200 italic">"{simplifiedText}"</p>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
                 </motion.div>
               )}
             </div>
@@ -151,4 +188,4 @@ function EventCard({ event }) {
   );
 }
 
-export default EventCard;
+export { EventCard };

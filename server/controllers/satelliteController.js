@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { asyncHandler } from '../middleware/errorHandler.js';
 
-const N2YO_API_KEY = process.env.N2YO_API_KEY;
 const N2YO_BASE_URL = 'https://api.n2yo.com/rest/v1/satellite';
+
+// Helper function to get API key (reads fresh each time)
+const getApiKey = () => process.env.N2YO_API_KEY;
 
 // ISS NORAD ID
 const ISS_ID = 25544;
@@ -12,12 +14,12 @@ const ISS_ID = 25544;
  * GET /api/satellite/iss
  */
 export const getISSPosition = asyncHandler(async (req, res) => {
-  if (!N2YO_API_KEY) {
+  if (!getApiKey()) {
     return res.json({
-      lat: 0,
-      lon: 0,
+      latitude: 0,
+      longitude: 0,
       altitude: 408,
-      velocity: 7.66,
+      velocity: 27600,
       timestamp: new Date().toISOString(),
       _demo: true,
       message: 'Using demo data. Set N2YO_API_KEY for real data.',
@@ -25,15 +27,16 @@ export const getISSPosition = asyncHandler(async (req, res) => {
   }
   
   const response = await axios.get(`${N2YO_BASE_URL}/positions/${ISS_ID}/0/0/0/1`, {
-    params: { apiKey: N2YO_API_KEY },
+    params: { apiKey: getApiKey() },
   });
   
   const position = response.data.positions[0];
   
   res.json({
-    lat: position.satlatitude,
-    lon: position.satlongitude,
+    latitude: position.satlatitude,
+    longitude: position.satlongitude,
     altitude: position.sataltitude,
+    velocity: 27600, // ISS velocity ~27,600 km/h
     timestamp: new Date(position.timestamp * 1000).toISOString(),
   });
 });
@@ -45,7 +48,7 @@ export const getISSPosition = asyncHandler(async (req, res) => {
 export const getSatellitePasses = asyncHandler(async (req, res) => {
   const { noradId, lat, lon, days = 10 } = req.query;
   
-  if (!N2YO_API_KEY) {
+  if (!getApiKey()) {
     return res.json({
       passes: [],
       _demo: true,
@@ -56,15 +59,15 @@ export const getSatellitePasses = asyncHandler(async (req, res) => {
   const response = await axios.get(
     `${N2YO_BASE_URL}/visualpasses/${noradId}/${lat}/${lon}/0/${days}/300`,
     {
-      params: { apiKey: N2YO_API_KEY },
+      params: { apiKey: getApiKey() },
     }
   );
   
   const passes = response.data.passes.map(pass => ({
-    startTime: new Date(pass.startUTC * 1000).toISOString(),
-    endTime: new Date(pass.endUTC * 1000).toISOString(),
+    startUTC: new Date(pass.startUTC * 1000).toISOString(),
+    endUTC: new Date(pass.endUTC * 1000).toISOString(),
     duration: pass.duration,
-    maxElevation: pass.maxEl,
+    maxEl: pass.maxEl,
     startAz: pass.startAz,
     endAz: pass.endAz,
     mag: pass.mag,
@@ -80,9 +83,9 @@ export const getSatellitePasses = asyncHandler(async (req, res) => {
 export const getOverheadSatellites = asyncHandler(async (req, res) => {
   const { lat, lon, radius = 90 } = req.query;
   
-  if (!N2YO_API_KEY) {
+  if (!getApiKey()) {
     return res.json({
-      satellites: [],
+      above: [],
       _demo: true,
       message: 'Set N2YO_API_KEY for real data.',
     });
@@ -91,17 +94,18 @@ export const getOverheadSatellites = asyncHandler(async (req, res) => {
   const response = await axios.get(
     `${N2YO_BASE_URL}/above/${lat}/${lon}/0/${radius}/0`,
     {
-      params: { apiKey: N2YO_API_KEY },
+      params: { apiKey: getApiKey() },
     }
   );
   
   const satellites = response.data.above.map(sat => ({
-    id: sat.satid,
-    name: sat.satname,
-    lat: sat.satlat,
-    lon: sat.satlng,
-    altitude: sat.satalt,
+    satid: sat.satid,
+    satname: sat.satname,
+    satcategory: sat.satcategory || 5,
+    satalt: sat.satalt,
+    satlat: sat.satlat,
+    satlng: sat.satlng,
   }));
   
-  res.json({ satellites });
+  res.json({ above: satellites });
 });

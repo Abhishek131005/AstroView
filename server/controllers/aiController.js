@@ -1,7 +1,5 @@
 import { asyncHandler } from '../middleware/errorHandler.js';
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-
 /**
  * Simplify complex text using Google Gemini AI
  * POST /api/ai/simplify
@@ -10,11 +8,15 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 export const simplifyText = asyncHandler(async (req, res) => {
   const { text, context = '' } = req.body;
   
+  // Read API key dynamically (not cached at module load time)
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  
   if (!text) {
     return res.status(400).json({ error: 'Text is required' });
   }
   
   if (!GEMINI_API_KEY) {
+    console.log('⚠️ GEMINI_API_KEY not found in environment');
     return res.json({
       simplified: text,
       original: text,
@@ -23,6 +25,8 @@ export const simplifyText = asyncHandler(async (req, res) => {
       message: 'Using demo mode. Set GEMINI_API_KEY for AI simplification.',
     });
   }
+  
+  console.log('✓ GEMINI_API_KEY found:', GEMINI_API_KEY.substring(0, 15) + '...');
   
   try {
     const prompt = `You are a friendly space educator explaining to a 14-year-old student. 
@@ -35,7 +39,7 @@ ${text}
 Simplified version:`;
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: {
@@ -52,7 +56,15 @@ Simplified version:`;
     );
     
     const data = await response.json();
+    console.log('Gemini API Response:', JSON.stringify(data, null, 2));
+    
+    if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+      console.error('Invalid Gemini response structure:', data);
+      throw new Error('Invalid AI response');
+    }
+    
     const simplified = data.candidates[0].content.parts[0].text;
+    console.log('Simplified text:', simplified);
     
     res.json({
       simplified,
@@ -81,6 +93,9 @@ Simplified version:`;
 export const askQuestion = asyncHandler(async (req, res) => {
   const { question } = req.body;
   
+  // Read API key dynamically
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  
   if (!question) {
     return res.status(400).json({ error: 'Question is required' });
   }
@@ -103,7 +118,7 @@ Question: ${question}
 Answer:`;
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: {

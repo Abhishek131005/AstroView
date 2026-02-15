@@ -1,6 +1,30 @@
+// Load environment variables FIRST - before any other imports
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const envPath = join(__dirname, '.env');
+
+console.log('📂 Loading .env from:', envPath);
+const envResult = dotenv.config({ path: envPath });
+
+if (envResult.error) {
+  console.error('❌ Error loading .env:', envResult.error);
+} else {
+  console.log('✅ .env loaded successfully');
+}
+
+console.log('=== Environment Variables Loaded ===');
+console.log('GEMINI_API_KEY:', process.env.GEMINI_API_KEY ? `${process.env.GEMINI_API_KEY.substring(0, 15)}...` : 'NOT SET');
+console.log('N2YO_API_KEY:', process.env.N2YO_API_KEY ? `${process.env.N2YO_API_KEY.substring(0, 15)}...` : 'NOT SET');
+console.log('NASA_API_KEY:', process.env.NASA_API_KEY ? `${process.env.NASA_API_KEY.substring(0, 15)}...` : 'NOT SET');
+console.log('====================================');
+
+// Now import everything else
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import NodeCache from 'node-cache';
 
 // Import routes
@@ -9,12 +33,10 @@ import satelliteRoutes from './routes/satellite.js';
 import astronomyRoutes from './routes/astronomy.js';
 import weatherRoutes from './routes/weather.js';
 import aiRoutes from './routes/ai.js';
+import notificationRoutes from './routes/notifications.js';
 
 // Import error handlers
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
-
-// Load environment variables
-dotenv.config();
 
 // Initialize Express app
 const app = express();
@@ -83,6 +105,11 @@ app.get('/api', (req, res) => {
         simplify: '/api/ai/simplify [POST]',
         ask: '/api/ai/simplify/ask [POST]',
       },
+      notifications: {
+        subscribe: '/api/notifications/subscribe [POST]',
+        unsubscribe: '/api/notifications/unsubscribe [POST]',
+        active: '/api/notifications/active [GET]',
+      },
     }
   });
 });
@@ -93,6 +120,7 @@ app.use('/api/satellite', satelliteRoutes);
 app.use('/api/astronomy', astronomyRoutes);
 app.use('/api/weather', weatherRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // 404 handler
 app.use(notFoundHandler);

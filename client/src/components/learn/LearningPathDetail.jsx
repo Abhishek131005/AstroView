@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle, Circle, ExternalLink, BookOpen, Award } from 'lucide-react';
-import Button from '../common/Button';
-import Modal from '../common/Modal';
+import { Button } from '../common/Button';
+import { Modal } from '../common/Modal';
 import Quiz from './Quiz';
 import { motion } from 'framer-motion';
 import quizzesData from '../../data/quizzes.json';
@@ -13,21 +13,33 @@ export default function LearningPathDetail({ path, progress, onStepComplete, onC
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentQuizId, setCurrentQuizId] = useState(null);
 
-  const activeStep = path.steps[activeStepIndex];
+  if (!path || !path.steps || path.steps.length === 0) {
+    return <div className="text-white p-4">Learning path not found</div>;
+  }
+
+  // Ensure activeStepIndex is valid
+  const validStepIndex = Math.min(activeStepIndex, path.steps.length - 1);
+  const activeStep = path.steps[validStepIndex];
   const completedSteps = progress?.completedSteps || [];
-  const isStepCompleted = completedSteps.includes(activeStep.id);
+  const isStepCompleted = completedSteps.includes(activeStep?.id);
+
+  if (!activeStep) {
+    return <div className="text-white p-4">No steps available</div>;
+  }
 
   const handleStepClick = (index) => {
     setActiveStepIndex(index);
   };
 
   const handleMarkComplete = () => {
-    onStepComplete(path.id, activeStep.id, activeStepIndex);
+    if (!activeStep) return;
+    
+    onStepComplete(path.id, activeStep.id, validStepIndex);
     
     // Auto-advance to next step if not on last step
-    if (activeStepIndex < path.steps.length - 1) {
+    if (validStepIndex < path.steps.length - 1) {
       setTimeout(() => {
-        setActiveStepIndex(activeStepIndex + 1);
+        setActiveStepIndex(validStepIndex + 1);
       }, 300);
     }
   };
@@ -126,7 +138,7 @@ export default function LearningPathDetail({ path, progress, onStepComplete, onC
       <div className="flex-1 overflow-y-auto">
         <div className="bg-dark-800/50 border border-electric-blue/20 rounded-lg p-6 lg:p-8">
           <motion.div
-            key={activeStepIndex}
+            key={validStepIndex}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -135,7 +147,7 @@ export default function LearningPathDetail({ path, progress, onStepComplete, onC
             {/* Step Header */}
             <div>
               <div className="text-sm text-gray-400 mb-2">
-                Step {activeStepIndex + 1} of {path.steps.length}
+                Step {validStepIndex + 1} of {path.steps.length}
               </div>
               <h2 className="text-2xl font-bold text-white mb-4">
                 {activeStep.title}
@@ -197,8 +209,8 @@ export default function LearningPathDetail({ path, progress, onStepComplete, onC
             <div className="flex items-center justify-between pt-6 border-t border-electric-blue/10">
               <Button
                 variant="secondary"
-                onClick={() => setActiveStepIndex(Math.max(0, activeStepIndex - 1))}
-                disabled={activeStepIndex === 0}
+                onClick={() => setActiveStepIndex(Math.max(0, validStepIndex - 1))}
+                disabled={validStepIndex === 0}
               >
                 Previous Step
               </Button>
@@ -211,16 +223,16 @@ export default function LearningPathDetail({ path, progress, onStepComplete, onC
                   </Button>
                 )}
 
-                {activeStepIndex < path.steps.length - 1 && (
+                {validStepIndex < path.steps.length - 1 && (
                   <Button
                     variant="primary"
-                    onClick={() => setActiveStepIndex(activeStepIndex + 1)}
+                    onClick={() => setActiveStepIndex(validStepIndex + 1)}
                   >
                     Next Step
                   </Button>
                 )}
 
-                {activeStepIndex === path.steps.length - 1 && allStepsCompleted && (
+                {validStepIndex === path.steps.length - 1 && allStepsCompleted && (
                   <Button variant="primary" onClick={onClose}>
                     Finish Path
                   </Button>

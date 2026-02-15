@@ -1,7 +1,7 @@
 import { BookOpen, Clock, TrendingUp } from 'lucide-react';
-import Card from '../common/Card';
-import Badge from '../common/Badge';
-import Button from '../common/Button';
+import { Card } from '../common/Card';
+import { Badge } from '../common/Badge';
+import { Button } from '../common/Button';
 
 export default function LearningPathCard({ path, progress, onStart }) {
   const completedSteps = progress?.completedSteps || 0;
@@ -36,7 +36,7 @@ export default function LearningPathCard({ path, progress, onStart }) {
       <div className="flex-1 space-y-3">
         <div>
           <h3 className="text-xl font-bold text-white mb-2">{path.title}</h3>
-          <p className="text-gray-400 text-sm leading-relaxed">
+          <p className="text-muted-gray text-sm leading-relaxed">
             {path.description}
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function LearningPathCard({ path, progress, onStart }) {
           <span className={`text-xs px-2 py-1 rounded-full border ${difficultyColors[path.difficulty] || difficultyColors.Beginner}`}>
             {path.difficulty}
           </span>
-          <span className="text-xs px-2 py-1 rounded-full border text-gray-400 bg-gray-400/10 border-gray-400/30 flex items-center gap-1">
+          <span className="text-xs px-2 py-1 rounded-full border text-muted-gray bg-white/5 border-white/10 flex items-center gap-1">
             <Clock className="w-3 h-3" />
             {path.estimatedTime}
           </span>
@@ -59,11 +59,11 @@ export default function LearningPathCard({ path, progress, onStart }) {
         {/* Progress Bar */}
         {isStarted && !isCompleted && (
           <div className="space-y-1">
-            <div className="flex justify-between text-xs text-gray-400">
+            <div className="flex justify-between text-xs text-muted-gray">
               <span>{completedSteps} of {totalSteps} steps completed</span>
               <span>{progressPercentage}%</span>
             </div>
-            <div className="h-2 bg-dark-800 rounded-full overflow-hidden">
+            <div className="h-2 bg-bg-tertiary rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-cosmic-purple to-electric-blue transition-all duration-500"
                 style={{ width: `${progressPercentage}%` }}

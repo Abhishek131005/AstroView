@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Home, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 
 function NotFoundPage() {
   return (

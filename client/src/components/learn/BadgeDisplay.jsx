@@ -59,14 +59,14 @@ export default function BadgeDisplay({ earnedBadges = [] }) {
               className={`aspect-square rounded-lg border-2 p-4 flex flex-col items-center justify-center transition-all duration-300 ${
                 isEarned
                   ? `bg-gradient-to-br ${config.color} border-transparent shadow-lg group-hover:scale-105`
-                  : 'bg-dark-800/50 border-gray-700 opacity-50'
+                  : 'bg-bg-secondary/50 border-white/10 opacity-50'
               }`}
             >
               {/* Icon */}
               <div className="relative mb-2">
                 <Icon
                   className={`w-12 h-12 ${
-                    isEarned ? 'text-white' : 'text-gray-600'
+                    isEarned ? 'text-white' : 'text-muted-gray'
                   }`}
                 />
                 {!isEarned && (
@@ -80,7 +80,7 @@ export default function BadgeDisplay({ earnedBadges = [] }) {
               <div className="text-center">
                 <div
                   className={`text-sm font-bold ${
-                    isEarned ? 'text-white' : 'text-gray-600'
+                    isEarned ? 'text-white' : 'text-muted-gray'
                   }`}
                 >
                   {config.title}
@@ -89,11 +89,11 @@ export default function BadgeDisplay({ earnedBadges = [] }) {
 
               {/* Tooltip */}
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10">
-                <div className="bg-dark-900 border border-electric-blue/30 rounded-lg p-3 shadow-xl min-w-[200px]">
+                <div className="bg-bg-primary border border-electric-blue/30 rounded-lg p-3 shadow-xl min-w-[200px]">
                   <div className="text-sm font-semibold text-white mb-1">
                     {config.title}
                   </div>
-                  <div className="text-xs text-gray-400">
+                  <div className="text-xs text-muted-gray">
                     {config.description}
                   </div>
                   {isEarned && (
@@ -106,7 +106,7 @@ export default function BadgeDisplay({ earnedBadges = [] }) {
                   )}
                 </div>
                 {/* Arrow */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-dark-900"></div>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-bg-primary"></div>
               </div>
             </div>
 

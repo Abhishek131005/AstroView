@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Cloud, Eye, Thermometer, RefreshCw, CloudOff, Sun, CloudRain } from 'lucide-react';
 import { LocationContext } from '@/context/LocationContext';
 import { getSkyConditions } from '@/services/weatherService';
-import Skeleton from '@/components/common/Skeleton';
-import Badge from '@/components/common/Badge';
+import { Skeleton } from '@/components/common/Skeleton';
+import { Badge } from '@/components/common/Badge';
 
 function SkyConditions() {
   const { location } = useContext(LocationContext);

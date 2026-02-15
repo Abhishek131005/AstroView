@@ -49,7 +49,7 @@ function TrackerPage() {
       </div>
 
       <section className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-950">
-        <ISSMap />
+        <ISSMap userLocation={location} />
       </section>
 
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
