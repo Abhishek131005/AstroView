@@ -201,31 +201,6 @@ function EarthEventsMap() {
         </div>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-2">
-        {Object.entries(EVENT_TYPES).filter(([key]) => key !== 'default').map(([type, config]) => {
-          const Icon = config.icon;
-          const isSelected = selectedTypes.includes(type);
-          const count = eventStats.find(s => s.type === type)?.count || 0;
-          return (
-            <button
-              key={type}
-              onClick={() => toggleType(type)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-2 ${
-                isSelected
-                  ? 'bg-white/10 text-white border border-white/20'
-                  : 'bg-white/5 text-muted-gray hover:bg-white/10'
-              }`}
-              style={isSelected ? { borderColor: config.color } : {}}
-            >
-              <Icon className="w-3.5 h-3.5" style={{ color: config.color }} />
-              {config.label}
-              <span className="ml-1 opacity-70">({count})</span>
-            </button>
-          );
-        })}
-      </div>
-
       {/* Map or List View */}
       <AnimatePresence mode="wait">
         {view === 'map' ? (
@@ -346,44 +321,6 @@ style={{ background: '#0a0e1a' }}
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Recent Events Summary */}
-      <Card className="!p-3">
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-electric-blue" />
-            <h3 className="text-sm font-semibold text-white">Recent Events</h3>
-          </div>
-          <span className="text-xs text-muted-gray">Last 24 hours</span>
-        </div>
-        <div className="space-y-2">
-          {recentEvents.length === 0 ? (
-            <p className="text-xs text-muted-gray text-center py-2">No recent events</p>
-          ) : (
-            recentEvents.map(event => {
-              const type = getEventType(event.category);
-              const config = EVENT_TYPES[type] || EVENT_TYPES.default;
-              const Icon = config.icon;
-              
-              return (
-                <div
-                  key={event.id}
-                  className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
-                  onClick={() => setSelectedEvent(event)}
-                >
-                  <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: config.color }} />
-                  <p className="text-xs text-white flex-1 truncate">{event.title}</p>
-                  {event.date && (
-                    <span className="text-xs text-muted-gray">
-                      {new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </span>
-                  )}
-                </div>
-              );
-            })
-          )}
-        </div>
-      </Card>
 
       {/* Stats Footer */}
       <div className="flex items-center justify-between text-xs">
