@@ -53,14 +53,14 @@ function ImpactPage() {
 
       {/* Live Earth Events */}
       <section>
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-2">
-            <MapPin className="w-6 h-6 text-electric-blue" />
-            <h2 className="text-2xl font-bold text-white">
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-1">
+            <MapPin className="w-5 h-5 text-electric-blue" />
+            <h2 className="text-xl font-bold text-white">
               <span className="gradient-text">Live Earth Events</span>
             </h2>
           </div>
-          <p className="text-muted-gray">
+          <p className="text-muted-gray text-sm">
             Real-time natural events detected by NASA's Earth Observing System
           </p>
         </div>
@@ -70,14 +70,14 @@ function ImpactPage() {
 
       {/* Near-Earth Objects */}
       <section>
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-2">
-            <Zap className="w-6 h-6 text-electric-blue" />
-            <h2 className="text-2xl font-bold text-white">
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-1">
+            <Zap className="w-5 h-5 text-electric-blue" />
+            <h2 className="text-xl font-bold text-white">
               <span className="gradient-text">Planetary Defense</span>
             </h2>
           </div>
-          <p className="text-muted-gray">
+          <p className="text-muted-gray text-sm">
             Tracking asteroids that pass close to Earth
           </p>
         </div>
