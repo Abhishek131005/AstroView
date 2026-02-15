@@ -10,14 +10,27 @@ import { API_ENDPOINTS } from '@/utils/constants';
  * Simplify complex text using AI
  * @param {string} text - Complex text to simplify
  * @param {string} context - Optional context (e.g., 'space mission', 'astronomy')
- * @returns {Promise<object>} { simplified, original, context }
+ * @returns {Promise<string>} Simplified text
  */
 export async function simplifyText(text, context = '') {
-  const response = await api.post(API_ENDPOINTS.SIMPLIFY, {
-    text,
-    context,
-  });
-  return response.data;
+  try {
+    const response = await api.post(API_ENDPOINTS.SIMPLIFY, {
+      text,
+      context,
+    });
+    
+    // Extract simplified text from response
+    if (response.data && response.data.simplified) {
+      return response.data.simplified;
+    }
+    
+    // Fallback to original text if no simplified version
+    return text;
+  } catch (error) {
+    console.error('AI simplification error:', error);
+    // Return original text on error
+    return text;
+  }
 }
 
 /**

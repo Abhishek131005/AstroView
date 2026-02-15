@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { asyncHandler } from '../middleware/errorHandler.js';
 
-const ASTRONOMY_API_ID = process.env.ASTRONOMY_API_ID;
-const ASTRONOMY_API_SECRET = process.env.ASTRONOMY_API_SECRET;
+// Helper functions to get API credentials (reads fresh each time)
+const getApiId = () => process.env.ASTRONOMY_API_ID;
+const getApiSecret = () => process.env.ASTRONOMY_API_SECRET;
 
 /**
  * Get moon phase for a specific date
@@ -12,7 +13,7 @@ export const getMoonPhase = asyncHandler(async (req, res) => {
   const { date } = req.query;
   const targetDate = date || new Date().toISOString().split('T')[0];
   
-  if (!ASTRONOMY_API_ID || !ASTRONOMY_API_SECRET) {
+  if (!getApiId() || !getApiSecret()) {
     // Return demo data
     const phases = ['New Moon', 'Waxing Crescent', 'First Quarter', 'Waxing Gibbous', 'Full Moon', 'Waning Gibbous', 'Last Quarter', 'Waning Crescent'];
     const phaseIndex = Math.floor(Math.random() * 8);
@@ -28,27 +29,20 @@ export const getMoonPhase = asyncHandler(async (req, res) => {
     });
   }
   
-  const authString = Buffer.from(`${ASTRONOMY_API_ID}:${ASTRONOMY_API_SECRET}`).toString('base64');
-  
-  const response = await axios.post(
+  const response = await axios.get(
     'https://api.astronomyapi.com/api/v2/bodies/positions/moon',
     {
-      format: 'json',
-      style: {
-        moonStyle: 'default',
-      },
-      observer: {
+      params: {
         latitude: 0,
         longitude: 0,
-        date: targetDate,
+        elevation: 0,
+        from_date: targetDate,
+        to_date: targetDate,
+        time: '00:00:00',
       },
-      view: {
-        type: 'constellation',
-      },
-    },
-    {
-      headers: {
-        Authorization: `Basic ${authString}`,
+      auth: {
+        username: getApiId(),
+        password: getApiSecret(),
       },
     }
   );

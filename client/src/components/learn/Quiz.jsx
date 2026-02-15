@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle, XCircle, ChevronRight, RotateCcw, Trophy, Sparkles } from 'lucide-react';
+import { CheckCircle, XCircle, ChevronRight, RotateCcw, Trophy, Sparkles, Loader2 } from 'lucide-react';
 import { Button } from '../common/Button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { simplifyText } from '@/services/aiService';
 
 export default function Quiz({ quiz, onComplete, onClose }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -9,6 +10,9 @@ export default function Quiz({ quiz, onComplete, onClose }) {
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [showSimple, setShowSimple] = useState(false);
+  const [simplifiedText, setSimplifiedText] = useState('');
+  const [isSimplifying, setIsSimplifying] = useState(false);
 
   const currentQuestion = quiz.questions[currentQuestionIndex];
   const totalQuestions = quiz.questions.length;
@@ -30,6 +34,8 @@ export default function Quiz({ quiz, onComplete, onClose }) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedAnswer(null);
       setIsAnswered(false);
+      setShowSimple(false);
+      setSimplifiedText('');
     } else {
       setShowResults(true);
     }
@@ -189,11 +195,53 @@ export default function Quiz({ quiz, onComplete, onClose }) {
             >
               <div className="flex items-start gap-3">
                 <Sparkles className="w-5 h-5 text-cosmic-purple shrink-0 mt-0.5" />
-                <div>
+                <div className="flex-1">
                   <h4 className="font-semibold text-white mb-2">Explanation</h4>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed mb-2">
                     {currentQuestion.explanation}
                   </p>
+                  
+                  {/* Explain Simply Toggle */}
+                  <button
+                    onClick={async () => {
+                      setShowSimple(!showSimple);
+                      if (!simplifiedText && !showSimple) {
+                        setIsSimplifying(true);
+                        try {
+                          const result = await simplifyText(currentQuestion.explanation, `quiz answer: ${currentQuestion.question}`);
+                          setSimplifiedText(typeof result === 'object' ? result.simplified : result);
+                        } catch (error) {
+                          setSimplifiedText('AI service unavailable. Using original text.');
+                        } finally {
+                          setIsSimplifying(false);
+                        }
+                      }
+                    }}
+                    className="text-sm text-electric-blue hover:text-electric-blue/80 transition-colors flex items-center gap-1"
+                  >
+                    <Sparkles className={`w-4 h-4 ${isSimplifying ? 'animate-pulse' : ''}`} />
+                    {showSimple ? 'Show Original' : 'Explain Simply'}
+                  </button>
+
+                  {showSimple && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      className="mt-3 p-3 bg-electric-blue/10 rounded-lg border border-electric-blue/20"
+                    >
+                      {isSimplifying ? (
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="w-4 h-4 animate-spin text-electric-blue" />
+                          <span className="text-sm text-electric-blue">Simplifying with AI...</span>
+                        </div>
+                      ) : (
+                        <div>
+                          <p className="text-xs text-electric-blue font-semibold mb-1 uppercase tracking-wide">AI Simplified</p>
+                          <p className="text-sm text-gray-200 italic">"{simplifiedText}"</p>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
                 </div>
               </div>
             </motion.div>

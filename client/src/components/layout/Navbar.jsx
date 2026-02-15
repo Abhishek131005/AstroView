@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Menu } from 'lucide-react';
 
 import { NotificationCenter } from '../common/NotificationCenter';
+import { SettingsMenu } from '../common/SettingsMenu';
 
 function Navbar() {
   return (
@@ -17,14 +17,7 @@ function Navbar() {
         {/* Right Side Actions */}
         <div className="flex items-center gap-2">
           <NotificationCenter />
-          
-          {/* Menu Button (for future drawer/menu functionality) */}
-          <button
-            className="p-2 rounded-lg text-muted-gray hover:text-star-white hover:bg-bg-tertiary transition-colors duration-200"
-            aria-label="Menu"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+          <SettingsMenu />
         </div>
       </div>
     </nav>

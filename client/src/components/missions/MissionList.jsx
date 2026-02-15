@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter, SortAsc } from 'lucide-react';
+import { Search, Filter, SortAsc, Rocket } from 'lucide-react';
 import MissionCard from './MissionCard';
 import MissionDetail from './MissionDetail';
 import { SearchBar } from '@/components/common/SearchBar';
@@ -35,7 +35,7 @@ function MissionList() {
     let filtered = missionsData;
 
     // Search filter
-    if (searchQuery) {
+    if (searchQuery && typeof searchQuery === 'string') {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(mission =>
         mission.name.toLowerCase().includes(query) ||
@@ -153,7 +153,7 @@ function MissionList() {
         {/* Missions Grid */}
         {filteredAndSortedMissions.length === 0 ? (
           <EmptyState
-            icon="rocket"
+            icon={Rocket}
             message="No missions found"
             description="Try adjusting your search or filters."
           />

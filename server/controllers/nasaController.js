@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { asyncHandler } from '../middleware/errorHandler.js';
 
-const NASA_API_KEY = process.env.NASA_API_KEY || 'DEMO_KEY';
 const NASA_BASE_URL = 'https://api.nasa.gov';
+
+// Helper function to get API key (reads fresh each time)
+const getApiKey = () => process.env.NASA_API_KEY || 'DEMO_KEY';
 
 /**
  * Get Astronomy Picture of the Day
@@ -12,7 +14,7 @@ export const getAPOD = asyncHandler(async (req, res) => {
   const { date } = req.query;
   
   const params = {
-    api_key: NASA_API_KEY,
+    api_key: getApiKey(),
   };
   
   if (date) {
@@ -47,7 +49,7 @@ export const getNearEarthObjects = asyncHandler(async (req, res) => {
     params: {
       start_date: startDate,
       end_date: endDate,
-      api_key: NASA_API_KEY,
+      api_key: getApiKey(),
     },
   });
   
@@ -94,7 +96,7 @@ export const getSolarFlares = asyncHandler(async (req, res) => {
     params: {
       startDate: start,
       endDate: end,
-      api_key: NASA_API_KEY,
+      api_key: getApiKey(),
     },
   });
   
@@ -126,7 +128,7 @@ export const getGeomagneticStorms = asyncHandler(async (req, res) => {
     params: {
       startDate: start,
       endDate: end,
-      api_key: NASA_API_KEY,
+      api_key: getApiKey(),
     },
   });
   
@@ -154,7 +156,7 @@ export const getCME = asyncHandler(async (req, res) => {
     params: {
       startDate: start,
       endDate: end,
-      api_key: NASA_API_KEY,
+      api_key: getApiKey(),
     },
   });
   
@@ -196,5 +198,5 @@ export const getEONETEvents = asyncHandler(async (req, res) => {
     link: event.link,
   }));
   
-  res.json(events);
+  res.json({ events });
 });

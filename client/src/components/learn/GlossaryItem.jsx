@@ -15,6 +15,7 @@ export default function GlossaryItem({ item, onExplainSimply }) {
       setSimplifiedText(result);
     } catch (error) {
       console.error('Failed to simplify:', error);
+      setSimplifiedText('Failed to generate simplified explanation.');
     } finally {
       setIsSimplifying(false);
     }

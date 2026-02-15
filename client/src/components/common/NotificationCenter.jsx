@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Bell, X, Clock } from 'lucide-react';
-import { formatDistanceToNow, parseISO, isBefore, addHours } from 'date-fns';
+import { useState, useEffect, useContext } from 'react';
+import { Bell, X, Clock, Satellite, Moon, Sun } from 'lucide-react';
+import { formatDistanceToNow, parseISO } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Badge } from './Badge';
-import eventsData from '../../data/events.json';
+import { LocationContext } from '../../context/LocationContext';
+import { getUpcomingCelestialEvents } from '../../services/eventService';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export { NotificationCenter };
@@ -13,24 +14,46 @@ function NotificationCenter() {
   const [isOpen, setIsOpen] = useState(false);
   const [readNotifications, setReadNotifications] = useLocalStorage('readNotifications', []);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { location } = useContext(LocationContext);
 
   useEffect(() => {
-    // Filter events within next 48 hours
-    const now = new Date();
-    const upcoming = eventsData
-      .map(event => ({
-        ...event,
-        date: parseISO(event.date)
-      }))
-      .filter(event => {
-        const eventDate = event.date;
-        const hoursUntil = (eventDate - now) / (1000 * 60 * 60);
-        return hoursUntil > 0 && hoursUntil <= 48;
-      })
-      .sort((a, b) => a.date - b.date);
-    
-    setUpcomingEvents(upcoming);
-  }, []);
+    const fetchUpcomingEvents = async () => {
+      if (!location.lat || !location.lon) {
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        setIsLoading(true);
+        // Get events for next 2 days
+        const events = await getUpcomingCelestialEvents(location.lat, location.lon, 2);
+        
+        // Filter events within next 48 hours
+        const now = new Date();
+        const upcoming = events
+          .map(event => ({
+            ...event,
+            date: parseISO(event.date)
+          }))
+          .filter(event => {
+            const eventDate = event.date;
+            const hoursUntil = (eventDate - now) / (1000 * 60 * 60);
+            return hoursUntil > 0 && hoursUntil <= 48;
+          })
+          .sort((a, b) => a.date - b.date)
+          .slice(0, 10); // Limit to 10 notifications
+        
+        setUpcomingEvents(upcoming);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUpcomingEvents();
+  }, [location.lat, location.lon]);
 
   const unreadCount = upcomingEvents.filter(
     event => !readNotifications.includes(event.id)
@@ -52,7 +75,20 @@ function NotificationCenter() {
   };
 
   const getEventIcon = (type) => {
-    return <Clock className="w-4 h-4" />;
+    const iconClass = "w-4 h-4 text-electric-blue";
+    switch (type) {
+      case 'satellite':
+        return <Satellite className={iconClass} />;
+      case 'moon':
+        return <Moon className={iconClass} />;
+      case 'planet':
+        return <Sun className={iconClass} />;
+      case 'solar':
+      case 'aurora':
+        return <Sun className={iconClass} />;
+      default:
+        return <Clock className={iconClass} />;
+    }
   };
 
   return (
@@ -131,10 +167,18 @@ function NotificationCenter() {
 
               {/* Notifications List */}
               <div className="overflow-y-auto flex-1">
-                {upcomingEvents.length === 0 ? (
+                {isLoading ? (
+                  <div className="p-8 text-center">
+                    <Clock className="w-12 h-12 text-electric-blue mx-auto mb-3 animate-spin" />
+                    <p className="text-muted-gray">Loading events...</p>
+                  </div>
+                ) : upcomingEvents.length === 0 ? (
                   <div className="p-8 text-center">
                     <Bell className="w-12 h-12 text-muted-gray mx-auto mb-3" />
                     <p className="text-muted-gray">No upcoming events in the next 48 hours</p>
+                    {(!location.lat || !location.lon) && (
+                      <p className="text-xs text-amber-400 mt-2">Set your location to see personalized events</p>
+                    )}
                   </div>
                 ) : (
                   <div className="divide-y divide-white/10">

@@ -27,28 +27,21 @@ function NEOSection() {
 
       const data = await getNearEarthObjects(formatDateString(today), formatDateString(endDate));
       
-      // Parse and flatten the NEO data
-      const objects = [];
-      Object.keys(data.near_earth_objects || {}).forEach(date => {
-        data.near_earth_objects[date].forEach(neo => {
-          objects.push({
-            id: neo.id,
-            name: neo.name,
-            date: date,
-            estimatedDiameter: neo.estimated_diameter?.meters?.estimated_diameter_max || 0,
-            closeApproach: neo.close_approach_data?.[0],
-            isPotentiallyHazardous: neo.is_potentially_hazardous_asteroid,
-            velocity: parseFloat(neo.close_approach_data?.[0]?.relative_velocity?.kilometers_per_hour || 0),
-            missDistance: parseFloat(neo.close_approach_data?.[0]?.miss_distance?.kilometers || 0)
-          });
+      // The backend returns { elementCount, asteroids: [...] }
+      if (data.asteroids && data.asteroids.length > 0) {
+        // Sort by approach date and distance
+        const sorted = [...data.asteroids].sort((a, b) => {
+          const dateA = new Date(a.closeApproachData?.date || a.date);
+          const dateB = new Date(b.closeApproachData?.date || b.date);
+          return dateA - dateB;
         });
-      });
 
-      // Sort by approach date
-      objects.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-      setNeoData(objects.slice(0, 10)); // Show top 10
+        setNeoData(sorted.slice(0, 10)); // Show top 10
+      } else {
+        setNeoData([]);
+      }
     } catch (err) {
+      console.error('NEO fetch error:', err);
       setError(err.message || 'Failed to fetch near-Earth objects');
     } finally {
       setIsLoading(false);
@@ -59,9 +52,10 @@ function NEOSection() {
     fetchNEOs();
   }, []);
 
-  const getSizeCategory = (diameter) => {
-    if (diameter < 50) return { label: 'Small', icon: '🌑', color: 'text-green-400' };
-    if (diameter < 200) return { label: 'Medium', icon: '🌕', color: 'text-amber-400' };
+  const getSizeCategory = (neo) => {
+    const diameter = neo.estimatedDiameter?.max || 0;
+    if (diameter < 0.05) return { label: 'Small', icon: '🌑', color: 'text-green-400' };
+    if (diameter < 0.2) return { label: 'Medium', icon: '🌕', color: 'text-amber-400' };
     return { label: 'Large', icon: '🌍', color: 'text-red-400' };
   };
 
@@ -131,8 +125,11 @@ function NEOSection() {
       ) : (
         <div className="space-y-3">
           {neoData.map(neo => {
-            const sizeInfo = getSizeCategory(neo.estimatedDiameter);
-            const safetyInfo = getSafetyIndicator(neo.isPotentiallyHazardous, neo.missDistance);
+            const sizeInfo = getSizeCategory(neo);
+            const safetyInfo = getSafetyIndicator(
+              neo.isPotentiallyHazardous,
+              neo.closeApproachData?.missDistance || 999999999
+            );
             const SafetyIcon = safetyInfo.icon;
 
             return (
@@ -146,59 +143,64 @@ function NEOSection() {
                   <div className="flex-1">
                     <h4 className="text-lg font-semibold text-white mb-1">{neo.name}</h4>
                     <p className="text-sm text-muted-gray">
-                      Asteroid ID: {neo.id}
+                      ID: {neo.id}
                     </p>
                   </div>
+
                   <Badge variant={safetyInfo.variant}>
                     <SafetyIcon className="w-3 h-3" />
                     {safetyInfo.label}
                   </Badge>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Calendar className="w-3.5 h-3.5 text-muted-gray" />
-                      <span className="text-xs text-muted-gray">Approach Date</span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div>
+                    <div className="flex items-center gap-1 mb-1">
+                      <Calendar className="w-3 h-3 text-muted-gray" />
+                      <span className="text-xs text-muted-gray">Approach</span>
                     </div>
-                    <p className="text-white font-medium">{formatDate(neo.date, 'MMM d')}</p>
-                  </div>
-
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Ruler className="w-3.5 h-3.5 text-muted-gray" />
-                      <span className="text-xs text-muted-gray">Diameter</span>
-                    </div>
-                    <p className={`font-medium ${sizeInfo.color}`}>
-                      {sizeInfo.icon} {Math.round(neo.estimatedDiameter)}m
+                    <p className="text-sm font-semibold text-white">
+                      {formatDate(neo.closeApproachData?.date || neo.date, 'MMM d')}
                     </p>
                   </div>
 
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="flex items-center gap-2 mb-1">
-                      <TrendingDown className="w-3.5 h-3.5 text-muted-gray" />
+                  <div>
+                    <div className="flex items-center gap-1 mb-1">
+                      <Ruler className="w-3 h-3 text-muted-gray" />
+                      <span className="text-xs text-muted-gray">Size</span>
+                    </div>
+                    <p className="text-sm font-semibold text-white flex items-center gap-1">
+                      <span className={sizeInfo.color}>{sizeInfo.icon}</span>
+                      {sizeInfo.label}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-1 mb-1">
+                      <TrendingDown className="w-3 h-3 text-muted-gray" />
                       <span className="text-xs text-muted-gray">Miss Distance</span>
                     </div>
-                    <p className="text-white font-medium font-mono text-xs">
-                      {formatDistance(neo.missDistance)}
+                    <p className="text-sm font-semibold text-white">
+                      {formatDistance(neo.closeApproachData?.missDistance || 0)}
                     </p>
                   </div>
 
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Rocket className="w-3.5 h-3.5 text-muted-gray" />
+                  <div>
+                    <div className="flex items-center gap-1 mb-1">
+                      <Rocket className="w-3 h-3 text-muted-gray" />
                       <span className="text-xs text-muted-gray">Velocity</span>
                     </div>
-                    <p className="text-white font-medium font-mono text-xs">
-                      {Math.round(neo.velocity).toLocaleString()} km/h
+                    <p className="text-sm font-semibold text-white">
+                      {(neo.closeApproachData?.velocity || 0).toFixed(1)} km/s
                     </p>
                   </div>
                 </div>
 
                 {neo.isPotentiallyHazardous && (
                   <div className="mt-3 p-2 bg-amber-500/10 border border-amber-500/20 rounded-lg">
-                    <p className="text-xs text-amber-400">
-                      ⚠️ Classified as potentially hazardous due to size and orbit proximity
+                    <p className="text-xs text-amber-400 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      Potentially Hazardous Asteroid (PHA)
                     </p>
                   </div>
                 )}
