@@ -1,245 +1,185 @@
 # AstroView Deployment Guide
 
-This guide covers deploying AstroView to production using Vercel (frontend) and Railway or Vercel Serverless (backend).
+This guide covers deploying AstroView to production using **Render** for both the backend API (Web Service) and the frontend (Static Site).
 
 ## Prerequisites
 
-- Node.js 18+ installed
-- Git repository on GitHub
-- Accounts created on:
-  - [Vercel](https://vercel.com)
-  - [Railway](https://railway.app) (optional, for backend)
-- API Keys obtained (see API Keys section below)
+- Node.js 18+ installed locally
+- Git repository pushed to GitHub
+- A [Render](https://render.com) account (free tier works)
+- All API keys ready (see section below)
 
 ---
 
 ## API Keys Required
 
-Before deploying, obtain the following API keys:
-
-### NASA API
-- **Service:** NASA Open APIs
-- **URL:** https://api.nasa.gov/
-- **Keys needed:**
-  - `NASA_API_KEY` (get from https://api.nasa.gov/)
-- **Free tier:** Yes (1000 requests/hour)
-
-### N2YO Satellite Tracking
-- **Service:** N2YO Satellite Database
-- **URL:** https://www.n2yo.com/api/
-- **Keys needed:**
-  - `N2YO_API_KEY`
-- **Free tier:** Limited
-
-### OpenWeatherMap
-- **Service:** Weather API
-- **URL:** https://openweathermap.org/api
-- **Keys needed:**
-  - `OPENWEATHER_API_KEY`
-- **Free tier:** Yes (1000 calls/day)
-
-### Astronomy API
-- **Service:** Astronomy API
-- **URL:** https://astronomyapi.com/
-- **Keys needed:**
-  - `ASTRONOMY_APP_ID`
-  - `ASTRONOMY_APP_SECRET`
-- **Free tier:** Limited
-
-### Google Gemini AI (Optional)
-- **Service:** Google AI Studio
-- **URL:** https://ai.google.dev/
-- **Keys needed:**
-  - `GEMINI_API_KEY`
-- **Free tier:** Yes
+| Variable | Service | Get it from | Free Tier |
+|---|---|---|---|
+| `NASA_API_KEY` | NASA Open APIs | https://api.nasa.gov/ | Yes – 1 000 req/hr |
+| `N2YO_API_KEY` | N2YO Satellite | https://www.n2yo.com/api/ | Limited |
+| `OPENWEATHER_API_KEY` | OpenWeatherMap | https://openweathermap.org/api | Yes – 1 000 calls/day |
+| `ASTRONOMY_APP_ID` | Astronomy API | https://astronomyapi.com/ | Limited |
+| `ASTRONOMY_APP_SECRET` | Astronomy API | https://astronomyapi.com/ | Limited |
+| `GEMINI_API_KEY` | Google Gemini AI | https://ai.google.dev/ | Yes |
 
 ---
 
-## Environment Variables
+## Local Environment Variables
 
-### Backend (.env)
-
-Create a `.env` file in the `server/` directory:
+### Backend — `server/.env`
 
 ```env
-# Server Configuration
+# Server
 PORT=3001
 NODE_ENV=production
 
-# NASA APIs
+# NASA
 NASA_API_KEY=your_nasa_api_key_here
 
-# Satellite Tracking (N2YO)
+# Satellite Tracking
 N2YO_API_KEY=your_n2yo_api_key_here
 
-# Weather API (OpenWeatherMap)
+# Weather
 OPENWEATHER_API_KEY=your_openweather_api_key_here
 
-# Astronomy API
+# Astronomy
 ASTRONOMY_APP_ID=your_astronomy_app_id_here
 ASTRONOMY_APP_SECRET=your_astronomy_app_secret_here
 
-# AI Service (Google Gemini) - Optional
+# AI (optional)
 GEMINI_API_KEY=your_gemini_api_key_here
 
-# CORS Configuration
-ALLOWED_ORIGINS=https://your-frontend-domain.vercel.app
+# CORS — comma-separated allowed origins
+ALLOWED_ORIGINS=https://astroview-client.onrender.com
 ```
 
-### Frontend (client/.env)
-
-Create a `.env` file in the `client/` directory:
+### Frontend — `client/.env`
 
 ```env
-# API Base URL (update after backend deployment)
-VITE_API_BASE_URL=https://your-backend-url.railway.app
+# Points at your Render backend service
+VITE_API_BASE_URL=https://astroview-api.onrender.com
 ```
 
 ---
 
-## Deployment Steps
+## Deployment on Render
 
-### Option 1: Deploy Backend to Railway
+You can deploy using the **Blueprint (render.yaml)** — the fastest method — or manually via the dashboard.
 
-#### 1. Push Code to GitHub
+---
+
+### Option A: Blueprint Deployment (Recommended)
+
+The repository already contains a `render.yaml` at the project root that defines both services.
+
+#### 1. Push code to GitHub
 
 ```bash
 git add .
-git commit -m "Ready for deployment"
+git commit -m "Add render.yaml for deployment"
 git push origin main
 ```
 
-#### 2. Deploy to Railway
+#### 2. Create a New Blueprint on Render
 
-1. Go to [Railway](https://railway.app) and sign in
-2. Click "New Project"
-3. Select "Deploy from GitHub repo"
-4. Choose your repository
-5. Railway will auto-detect Node.js
-6. Configure the following:
-   - **Root Directory:** `server`
-   - **Build Command:** `npm install`
-   - **Start Command:** `npm start`
-7. Add environment variables:
-   - Click on your service → Variables
-   - Add all variables from your `.env` file
-8. Deploy!
+1. Log in to [Render Dashboard](https://dashboard.render.com)
+2. Click **New** → **Blueprint**
+3. Connect your GitHub account and select the **AstroView** repository
+4. Render will detect `render.yaml` automatically
+5. Click **Apply**
 
-#### 3. Get Backend URL
+#### 3. Set Secret Environment Variables
 
-- After deployment, Railway will provide a public URL like:
-  `https://astroview-production.up.railway.app`
-- Copy this URL for frontend configuration
+After Render creates the services, set the variables marked `sync: false` in the dashboard:
 
-### Option 2: Deploy Backend to Vercel Serverless
+**For `astroview-api` (Web Service):**
+- `NASA_API_KEY`
+- `N2YO_API_KEY`
+- `OPENWEATHER_API_KEY`
+- `ASTRONOMY_APP_ID`
+- `ASTRONOMY_APP_SECRET`
+- `GEMINI_API_KEY`
+- `ALLOWED_ORIGINS` → set to your static site URL, e.g. `https://astroview-client.onrender.com`
 
-Vercel Serverless Functions have a 10-second timeout, which might be limiting for some API calls. Railway is recommended for the backend.
+**For `astroview-client` (Static Site):**
+- `VITE_API_BASE_URL` → set to your web service URL, e.g. `https://astroview-api.onrender.com`
 
-#### 1. Adapt Server to Serverless Format
+#### 4. Trigger Redeploy
 
-Create `api/` directory in project root and convert Express routes to Vercel serverless functions.
-
-Example: `api/nasa/apod.js`
-```javascript
-import { nasaController } from '../../server/controllers/nasaController.js';
-
-export default async function handler(req, res) {
-  return nasaController.getAPOD(req, res);
-}
-```
-
-#### 2. Create `vercel.json`
-
-```json
-{
-  "functions": {
-    "api/**/*.js": {
-      "maxDuration": 10
-    }
-  },
-  "env": {
-    "NASA_API_KEY": "@nasa_api_key",
-    "N2YO_API_KEY": "@n2yo_api_key"
-  }
-}
-```
-
-#### 3. Deploy
-
-```bash
-vercel --prod
-```
+After setting all environment variables, click **Manual Deploy** → **Deploy latest commit** on both services.
 
 ---
 
-### Deploy Frontend to Vercel
+### Option B: Manual Dashboard Deployment
 
-#### 1. Update API Base URL
+#### Step 1 — Deploy the Backend
 
-In `client/.env`, set the backend URL:
+1. Go to [Render Dashboard](https://dashboard.render.com) → **New** → **Web Service**
+2. Connect your GitHub repository
+3. Configure:
 
-```env
-VITE_API_BASE_URL=https://your-backend-url.railway.app
-```
+   | Setting | Value |
+   |---|---|
+   | **Name** | `astroview-api` |
+   | **Root Directory** | `server` |
+   | **Runtime** | Node |
+   | **Build Command** | `npm install` |
+   | **Start Command** | `npm start` |
+   | **Instance Type** | Free |
 
-#### 2. Deploy to Vercel
+4. Add all backend environment variables (table above)
+5. Click **Create Web Service**
+6. Copy the generated URL (e.g. `https://astroview-api.onrender.com`)
 
-**Method A: Vercel CLI**
+#### Step 2 — Deploy the Frontend
 
-```bash
-cd client
-npm install -g vercel
-vercel --prod
-```
+1. Go to **New** → **Static Site**
+2. Connect the same GitHub repository
+3. Configure:
 
-**Method B: Vercel Dashboard**
+   | Setting | Value |
+   |---|---|
+   | **Name** | `astroview-client` |
+   | **Root Directory** | `client` |
+   | **Build Command** | `npm install && npm run build` |
+   | **Publish Directory** | `dist` |
 
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Click "Add New" → "Project"
-3. Import your GitHub repository
-4. Configure project:
-   - **Framework Preset:** Vite
-   - **Root Directory:** `client`
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-   - **Install Command:** `npm install`
-5. Add environment variable:
-   - Key: `VITE_API_BASE_URL`
-   - Value: Your backend URL
-6. Click "Deploy"
+4. Add environment variable:
+   - `VITE_API_BASE_URL` = `https://astroview-api.onrender.com` (URL from Step 1)
+5. Click **Create Static Site**
 
-#### 3. Configure Custom Domain (Optional)
+#### Step 3 — Update CORS on Backend
 
-1. In Vercel project settings → Domains
-2. Add your custom domain (e.g., `astroview.app`)
-3. Update DNS records as instructed
+Go back to `astroview-api` → **Environment** and update:
+- `ALLOWED_ORIGINS` = `https://astroview-client.onrender.com`
+
+Then redeploy the backend.
 
 ---
 
 ## Post-Deployment Checklist
 
-### ✅ Frontend Checks
+### Frontend
 
-- [ ] Site loads at Vercel URL
-- [ ] All pages accessible (Home, Tracker, Missions, Impact, Learn, Calendar)
-- [ ] No 404 errors in console
-- [ ] Fonts load correctly (Google Fonts)
-- [ ] Images load correctly
-- [ ] Tailwind styles applied
-- [ ] Mobile responsive (test on phone)
+- [ ] Site loads at Render static site URL
+- [ ] All pages work: Home, Tracker, Missions, Impact, Learn, Calendar
+- [ ] No 404 errors in browser console
+- [ ] Fonts load (Google Fonts)
+- [ ] Tailwind styles applied correctly
+- [ ] Mobile responsive (test at 375 px, 768 px, 1024 px)
 
-### ✅ Backend Checks
+### Backend
 
-- [ ] Health check endpoint works: `GET /health`
-- [ ] CORS configured (frontend can access backend)
-- [ ] All API routes respond:
-  - `/api/nasa/apod`
-  - `/api/satellite/iss`
-  - `/api/weather/sky?lat=40&lon=-74`
-- [ ] Caching works (check response headers)
-- [ ] Error handling works (test with invalid params)
+- [ ] Health check responds: `GET https://astroview-api.onrender.com/health`
+- [ ] CORS allows frontend origin
+- [ ] Core routes respond:
+  - `GET /api/nasa/apod`
+  - `GET /api/satellite/iss`
+  - `GET /api/weather/sky?lat=40&lon=-74`
+- [ ] Caching headers present on repeated requests
+- [ ] Error responses are JSON (not HTML)
 
-### ✅ Integration Checks
+### Integration
 
 - [ ] HomePage displays APOD image
 - [ ] TrackerPage shows live ISS position
@@ -249,194 +189,156 @@ vercel --prod
 - [ ] CalendarPage displays events
 - [ ] Notification bell shows upcoming events
 
-### ✅ Performance Checks
+### Performance
 
-- [ ] Lighthouse score > 90 (Performance)
-- [ ] Lighthouse score > 95 (Accessibility)
-- [ ] Lighthouse score > 90 (Best Practices)
-- [ ] Lighthouse score > 100 (SEO)
-- [ ] Page load time < 3 seconds
-- [ ] Time to Interactive < 5 seconds
+- [ ] Lighthouse Performance > 90
+- [ ] Lighthouse Accessibility > 95
+- [ ] Lighthouse Best Practices > 90
+- [ ] Lighthouse SEO = 100
+- [ ] Page load < 3 s
+- [ ] Time to Interactive < 5 s
 
-Run Lighthouse in Chrome DevTools:
 ```
-Right-click → Inspect → Lighthouse → Generate report
+Chrome DevTools → Lighthouse → Generate report
 ```
 
 ---
 
 ## Troubleshooting
 
-### Frontend Issues
+### CORS errors on frontend
 
-**Problem:** API calls failing with CORS errors  
-**Solution:**
-- Check `ALLOWED_ORIGINS` in backend .env includes frontend URL
-- Verify `VITE_API_BASE_URL` in frontend .env is correct
+- Confirm `ALLOWED_ORIGINS` in the backend service includes the exact static site URL (no trailing slash)
+- Confirm `VITE_API_BASE_URL` has no trailing slash
+- Redeploy both services after changing env vars
 
-**Problem:** Environment variables not working  
-**Solution:**
-- In Vercel, redeploy after adding environment variables
-- Ensure variables are prefixed with `VITE_` for client-side access
+### Environment variables not taking effect
 
-**Problem:** Build fails on Vercel  
-**Solution:**
-- Check build logs for errors
-- Ensure all dependencies are in `package.json`
-- Try building locally: `npm run build`
+- Render requires a **redeploy** after changing env vars
+- For the static site, `VITE_` prefix is required for client-side access
+- Check the **Logs** tab on Render for startup errors
 
-### Backend Issues
-
-**Problem:** API endpoints returning 500 errors  
-**Solution:**
-- Check Railway logs for error details
-- Verify all API keys are correctly set
-- Test API keys locally first
-
-**Problem:** Slow API responses  
-**Solution:**
-- Check if caching is working (should see cached responses)
-- Consider upgrading Railway plan for more resources
-- Optimize database queries (if using database)
-
-**Problem:** Railway deployment fails  
-**Solution:**
-- Ensure `package.json` has correct start script
-- Check Node.js version compatibility
-- Review Railway build logs
-
----
-
-## Monitoring & Maintenance
-
-### Analytics (Optional)
-
-Add Google Analytics or Vercel Analytics:
-
-1. In Vercel project → Analytics → Enable
-2. Or add Google Analytics to `index.html`:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_TRACKING_ID');
-</script>
-```
-
-### Error Tracking (Optional)
-
-Use Sentry for error monitoring:
+### Build fails on Render
 
 ```bash
-npm install @sentry/react @sentry/tracing
+# Test locally before pushing
+cd client && npm run build
+cd ../server && npm install && node index.js
 ```
 
-Initialize in `main.jsx`:
+- Ensure all dependencies are listed in `package.json` (not just `devDependencies`)
+- Check the **Build Logs** tab in the Render dashboard
 
-```javascript
-import * as Sentry from '@sentry/react';
+### Backend returning 500 errors
 
-Sentry.init({
-  dsn: "YOUR_SENTRY_DSN",
-  integrations: [new Sentry.BrowserTracing()],
-  tracesSampleRate: 1.0,
-});
-```
+- Open **Logs** tab on the `astroview-api` service
+- Verify all API keys are set and non-empty
+- Test keys locally with `node server/test-env.js`
 
-### Uptime Monitoring
+### Render free tier spin-down
 
-Use services like:
-- [UptimeRobot](https://uptimerobot.com/) (free)
-- [Ping](https://ping.gg/)
-- Railway built-in monitoring
+Free web services spin down after 15 minutes of inactivity and take ~30 s to restart.  
+To avoid cold starts, use a free uptime monitor like [UptimeRobot](https://uptimerobot.com/) to ping `/health` every 14 minutes.
 
 ---
 
-## Scaling Considerations
+## Custom Domain (Optional)
 
-### If traffic increases:
+1. Render Dashboard → your service → **Settings** → **Custom Domains**
+2. Add your domain (e.g. `astroview.app`)
+3. Update DNS:
+   - For Static Site: add a `CNAME` record pointing to the Render-provided hostname
+   - For Web Service: add a `CNAME` record pointing to the Render-provided hostname
+4. Render provisions an SSL certificate automatically
 
-**Frontend (Vercel):**
-- Vercel auto-scales automatically
-- Upgrade to Pro plan for higher limits
-- Add CDN caching headers
-
-**Backend (Railway):**
-- Upgrade to paid plan for more resources
-- Add database for caching instead of in-memory
-- Consider Redis for distributed caching
-- Implement rate limiting
-
-**API Limits:**
-- Monitor API usage (most have dashboards)
-- Implement request batching
-- Cache aggressively (NASA APOD changes daily)
-- Consider upgrading API tiers
+Update `ALLOWED_ORIGINS` on the backend to include the new domain.
 
 ---
 
-## Rollback Plan
+## Rollback
 
-### If something breaks in production:
+**Render Dashboard → your service → Events tab**
 
-**Vercel (Frontend):**
-1. Go to Vercel Dashboard → Deployments
-2. Find previous working deployment
-3. Click "..." → "Promote to Production"
+1. Find the last working deploy
+2. Click **Redeploy** next to that commit
 
-**Railway (Backend):**
-1. Go to Railway Dashboard → Deployments
-2. Select previous deployment
-3. Click "Redeploy"
+Or via Git:
 
-**Or use Git:**
 ```bash
 git revert HEAD
 git push origin main
+# Render auto-deploys on push
 ```
 
-Both platforms will auto-redeploy from the new commit.
+---
+
+## Scaling (If Traffic Grows)
+
+| Layer | Action |
+|---|---|
+| Frontend (Static Site) | Render CDN auto-scales; no action needed |
+| Backend (Web Service) | Upgrade to **Starter** or **Standard** instance to eliminate spin-down |
+| Caching | Replace `node-cache` with Redis (Render offers Redis add-on) |
+| API limits | Monitor dashboards; upgrade tiers or add request batching |
 
 ---
 
 ## Security Best Practices
 
-- ✅ Never commit `.env` files (use `.gitignore`)
-- ✅ Use environment variables for all secrets
+- ✅ `.env` files are in `.gitignore` — never commit secrets
+- ✅ All secrets set via Render environment variables
+- ✅ HTTPS enforced automatically by Render
+- ✅ CORS restricted to known frontend origin
+- ✅ Rate limiting implemented in Express middleware
+- ✅ Keep dependencies up to date: `npm audit fix`
 - ✅ Rotate API keys periodically
-- ✅ Enable HTTPS (Vercel/Railway do this automatically)
-- ✅ Implement rate limiting on backend
-- ✅ Sanitize user inputs
-- ✅ Keep dependencies updated: `npm audit fix`
 
 ---
 
-## Support & Resources
+## Monitoring
 
-- **Vercel Docs:** https://vercel.com/docs
-- **Railway Docs:** https://docs.railway.app
-- **Vite Docs:** https://vitejs.dev/guide
-- **React Docs:** https://react.dev
+### Render Built-in
 
-For issues, check:
-1. Deployment logs (Vercel/Railway dashboards)
-2. Browser console (F12)
-3. Network tab (check API responses)
-4. GitHub Issues (if open source)
+- **Logs:** Real-time log streaming per service
+- **Metrics:** CPU / memory charts on paid plans
+- **Alerts:** Configure deploy failure notifications via **Notifications** settings
+
+### Free External Tools
+
+- **[UptimeRobot](https://uptimerobot.com/)** — uptime monitoring + alerts (also prevents free-tier spin-down)
+- **[Sentry](https://sentry.io)** — error tracking
+
+```bash
+# Add Sentry to frontend
+npm install @sentry/react
+```
+
+```javascript
+// client/src/main.jsx
+import * as Sentry from '@sentry/react';
+Sentry.init({ dsn: 'YOUR_SENTRY_DSN', tracesSampleRate: 1.0 });
+```
 
 ---
 
-**Deployment Status:**
+## Resources
 
-- ✅ Backend deployed to Railway
-- ✅ Frontend deployed to Vercel
-- ✅ Environment variables configured
-- ✅ Custom domain connected (optional)
-- ✅ SSL certificate active
-- ✅ Monitoring enabled
+- [Render Docs](https://render.com/docs)
+- [Render Blueprint (render.yaml) reference](https://render.com/docs/blueprint-spec)
+- [Vite Deployment Guide](https://vitejs.dev/guide/static-deploy)
+- [React Docs](https://react.dev)
 
-🎉 **Your AstroView app is now live!**
+---
+
+## Deployment Status
+
+- [ ] `render.yaml` pushed to `main`
+- [ ] Blueprint applied on Render dashboard
+- [ ] Secret env vars set on both services
+- [ ] Backend health check passing
+- [ ] Frontend loading at Render URL
+- [ ] CORS verified (no console errors)
+- [ ] Custom domain connected (optional)
+- [ ] UptimeRobot monitor active (optional)
+
+🎉 **AstroView is live on Render!**
