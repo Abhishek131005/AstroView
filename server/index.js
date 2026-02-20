@@ -62,6 +62,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    name: 'AstroView API',
+    version: '1.0.0',
+    status: 'running',
+    docs: '/api',
+    health: '/health',
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ 
